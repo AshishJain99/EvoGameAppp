@@ -87,3 +87,54 @@ struct recomended: Codable {
 
 
 typealias Welcome = [String]
+
+struct CategoryApiResponse: Codable {
+    let Category: [categoryElement]?
+
+    enum CodingKeys: String, CodingKey {
+        case Category
+    }
+}
+
+// MARK: - CategoryElement
+struct categoryElement: Codable {
+    let Id, AppName: String?
+    let Category: String?
+    let Language: String?
+    let Author, Description: String?
+    let LastUpdated: String?
+    let Icon, CoverImage, Screenshot1, Screenshot2: String?
+    let Screenshot3, Screenshot4: String?
+    let VideoLink, Featured, Recomended, AndroidPackageName: String?
+    let AndroidStoreLink: String?
+    let AndroidSupportVersion, AndroidSize, AndroidVersion, AndroidRatings: String?
+    let AndroidINR, AndroidInstallCount, AndroidRemarks: String?
+
+    enum CodingKeys: String, CodingKey {
+        case Id
+        case AppName
+        case Category
+        case Language
+        case Author
+        case Description
+        case LastUpdated
+        case Icon
+        case CoverImage
+        case Screenshot1
+        case Screenshot2
+        case Screenshot3
+        case Screenshot4
+        case VideoLink
+        case Featured
+        case Recomended
+        case AndroidPackageName
+        case AndroidStoreLink
+        case AndroidSupportVersion
+        case AndroidSize
+        case AndroidVersion
+        case AndroidRatings
+        case AndroidINR
+        case AndroidInstallCount
+        case AndroidRemarks
+    }
+}

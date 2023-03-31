@@ -219,10 +219,15 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
                     navigationController?.pushViewController(detailVC, animated: false)
         }else if collectionView == featuredCollectionView{
             let detailVC = DetailedViewController()
-                    navigationController?.pushViewController(detailVC, animated: true)
+            let data = allFeatured[indexPath.row]
+            detailVC.setBackG(CoverImage: data.CoverImage!, Screenshot1: data.Screenshot1!, Screenshot2: data.Screenshot2!, Screenshot3: data.Screenshot3!, Screenshot4: data.Screenshot4!,Icon: data.Icon!,gameName: data.AppName!,devName: data.Author!,description: data.Description!)
+                    navigationController?.pushViewController(detailVC, animated: false)
         }else if collectionView == categoriesCollectionView{
-            let detailVC = DetailedViewController()
-                    navigationController?.pushViewController(detailVC, animated: true)
+            let VC = CategoryCollectionView()
+            let data = allCategories[indexPath.row]
+            VC.getCategoryData(Type: data)
+            print(data)
+                    navigationController?.pushViewController(VC, animated: false)
         }
     }
     

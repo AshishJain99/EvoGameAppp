@@ -22,6 +22,8 @@
 		960D89D729D352B000867786 /* CategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D89D629D352B000867786 /* CategoriesCell.swift */; };
 		960D89D929D58A6100867786 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D89D829D58A6100867786 /* DetailedViewController.swift */; };
 		960D89DB29D5B8D800867786 /* GetApiImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D89DA29D5B8D800867786 /* GetApiImage.swift */; };
+		960D89DD29D743E200867786 /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D89DC29D743E200867786 /* CategoryCollectionView.swift */; };
+		960D89DF29D74B2700867786 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D89DE29D74B2700867786 /* CategoryCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		960D89D629D352B000867786 /* CategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
 		960D89D829D58A6100867786 /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		960D89DA29D5B8D800867786 /* GetApiImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetApiImage.swift; sourceTree = "<group>"; };
+		960D89DC29D743E200867786 /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
+		960D89DE29D74B2700867786 /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 				960D89A529C8C08800867786 /* Models */,
 				960D89A629C8C0CB00867786 /* Views  */,
 				960D89D829D58A6100867786 /* DetailedViewController.swift */,
+				960D89DC29D743E200867786 /* CategoryCollectionView.swift */,
+				960D89DE29D74B2700867786 /* CategoryCollectionCell.swift */,
 				960D899A29C8BFE000867786 /* Assets.xcassets */,
 				960D899729C8BFDE00867786 /* Main.storyboard */,
 				960D899C29C8BFE000867786 /* LaunchScreen.storyboard */,
@@ -207,8 +213,10 @@
 			files = (
 				960D89C129CEFC2C00867786 /* Models.swift in Sources */,
 				960D89DB29D5B8D800867786 /* GetApiImage.swift in Sources */,
+				960D89DF29D74B2700867786 /* CategoryCollectionCell.swift in Sources */,
 				960D89AC29C8C59800867786 /* OnboardingSlide.swift in Sources */,
 				960D899229C8BFDE00867786 /* AppDelegate.swift in Sources */,
+				960D89DD29D743E200867786 /* CategoryCollectionView.swift in Sources */,
 				960D89D929D58A6100867786 /* DetailedViewController.swift in Sources */,
 				960D89D529D3510100867786 /* RecommendedCell .swift in Sources */,
 				960D89AE29C8CCF200867786 /* OnboardingCollectionViewCell.swift in Sources */,
