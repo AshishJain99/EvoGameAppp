@@ -249,8 +249,8 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
            guard let cell = recommendedCollectionView.dequeueReusableCell(withReuseIdentifier: RecommendedCell.indentifier, for: indexPath) as? RecommendedCell else{
                return UICollectionViewCell()
            }
-            let AppName = allFeatured[indexPath.row].AppName
-            let imageURL = allFeatured[indexPath.row].CoverImage!
+            let AppName = allRecommended[indexPath.row].AppName
+            let imageURL = allRecommended[indexPath.row].CoverImage!
             cell.recommendedGetImage(urlString: imageURL)
             cell.recommendedTextLabel.text = AppName
             return cell
