@@ -104,6 +104,8 @@ class HomeViewController: UIViewController {
         featuredCollectionView.collectionViewLayout = flowLayout
         categoriesCollectionView.collectionViewLayout = flowLayout
         
+        searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+        
         recommendedCollectionView.register(RecommendedCell.self, forCellWithReuseIdentifier: RecommendedCell.indentifier)
         
         featuredCollectionView.register(FeaturedCell.self, forCellWithReuseIdentifier: FeaturedCell.indentifier)
@@ -183,6 +185,11 @@ class HomeViewController: UIViewController {
         scrollView.addSubview(categoriesCollectionView)
         
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: categoriesCollectionView.frame.maxY)
+    }
+    
+    @objc func searchButtonTapped(){
+        let vc = SearchCollection()
+        navigationController?.pushViewController(vc, animated: false)
     }
     
     func getTime()->String{

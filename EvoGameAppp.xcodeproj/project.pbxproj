@@ -24,6 +24,7 @@
 		960D89DB29D5B8D800867786 /* GetApiImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D89DA29D5B8D800867786 /* GetApiImage.swift */; };
 		960D89DD29D743E200867786 /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D89DC29D743E200867786 /* CategoryCollectionView.swift */; };
 		960D89DF29D74B2700867786 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D89DE29D74B2700867786 /* CategoryCollectionCell.swift */; };
+		960D89E129D842A100867786 /* SearchCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D89E029D842A100867786 /* SearchCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		960D89DA29D5B8D800867786 /* GetApiImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetApiImage.swift; sourceTree = "<group>"; };
 		960D89DC29D743E200867786 /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
 		960D89DE29D74B2700867786 /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
+		960D89E029D842A100867786 /* SearchCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				960D89D829D58A6100867786 /* DetailedViewController.swift */,
 				960D89DC29D743E200867786 /* CategoryCollectionView.swift */,
 				960D89DE29D74B2700867786 /* CategoryCollectionCell.swift */,
+				960D89E029D842A100867786 /* SearchCollection.swift */,
 				960D899A29C8BFE000867786 /* Assets.xcassets */,
 				960D899729C8BFDE00867786 /* Main.storyboard */,
 				960D899C29C8BFE000867786 /* LaunchScreen.storyboard */,
@@ -220,6 +223,7 @@
 				960D89D929D58A6100867786 /* DetailedViewController.swift in Sources */,
 				960D89D529D3510100867786 /* RecommendedCell .swift in Sources */,
 				960D89AE29C8CCF200867786 /* OnboardingCollectionViewCell.swift in Sources */,
+				960D89E129D842A100867786 /* SearchCollection.swift in Sources */,
 				960D899429C8BFDE00867786 /* SceneDelegate.swift in Sources */,
 				960D89AA29C8C1A800867786 /* OnboardingViewController.swift in Sources */,
 				960D89D729D352B000867786 /* CategoriesCell.swift in Sources */,

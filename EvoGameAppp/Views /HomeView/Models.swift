@@ -138,3 +138,52 @@ struct categoryElement: Codable {
         case AndroidRemarks
     }
 }
+struct searchApiResponse: Codable {
+    let Search: [search]?
+
+    enum CodingKeys: String, CodingKey {
+        case Search
+    }
+}
+
+// MARK: - Search
+struct search: Codable {
+    let Id, AppName, Category, Language: String?
+    let Author, Description, LastUpdated: String?
+    let Icon, CoverImage, Screenshot1, Screenshot2: String?
+    let Screenshot3, Screenshot4: String?
+    let VideoLink, Featured, Recomended: String?
+    let IosID, IosPackageName, IosStoreLink, IosSupportVersion: String?
+    let IosSize, IosVersion, IosRatings, IosINR: String?
+    let IosInstallCount: String?
+    let IosRemarks: String?
+
+    enum CodingKeys: String, CodingKey {
+        case Id
+        case AppName
+        case Category
+        case Language
+        case Author
+        case Description
+        case LastUpdated
+        case Icon
+        case CoverImage
+        case Screenshot1
+        case Screenshot2
+        case Screenshot3
+        case Screenshot4
+        case VideoLink
+        case Featured
+        case Recomended
+        case IosID
+        case IosPackageName
+        case IosStoreLink
+        case IosSupportVersion
+        case IosSize
+        case IosVersion
+        case IosRatings
+        case IosINR
+        case IosInstallCount
+        case IosRemarks
+    }
+}
