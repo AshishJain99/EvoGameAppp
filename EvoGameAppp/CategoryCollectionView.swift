@@ -90,7 +90,7 @@ extension CategoryCollectionView:UICollectionViewDelegate,UICollectionViewDataSo
     }
     
     func getCategoryData(Type:String){
-        let urlWithType = "https://privapi.amkette.com/egpapp_v3/category.php?device=2&category=\(Type)"
+        let urlWithType = "https://privapi.amkette.com/egpapp_v3/iosapi/category.php?category=\(Type)"
         guard let url = URL(string: urlWithType)
         else {
             return

@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     var allRecommended:[recomended] = []
-    var allFeatured:[featured] = []
+    var allFeatured:[Featured] = []
     var allCategories: [String] = []
     
     
@@ -188,7 +188,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func searchButtonTapped(){
-        let vc = SearchCollection()
+        let vc = Search2ViewController()
         navigationController?.pushViewController(vc, animated: false)
     }
     
@@ -314,7 +314,7 @@ struct Model{
 extension HomeViewController{
     
     private func fetchCategoriesData(){
-        guard let url = URL(string: "https://privapi.amkette.com/egpapp_v3/list_category.php") else {
+        guard let url = URL(string: "https://privapi.amkette.com/egpapp_v3/iosapi/list_category.php") else {
             return
         }
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -346,7 +346,7 @@ extension HomeViewController{
     
     
     private func fetchFeaturedData(){
-        guard let url = URL(string: "https://privapi.amkette.com/egpapp_v3/featured.php?device=2")
+        guard let url = URL(string: "https://privapi.amkette.com/egpapp_v3/featured.php?device=1")
         else {
             return
         }
@@ -357,7 +357,7 @@ extension HomeViewController{
                     DispatchQueue.main.async {
                         do{
                             let ApiResponse = try JSONDecoder().decode(featuredApiResponse.self, from: data!)
-                            self.allFeatured.append(contentsOf: ApiResponse.Featured!)
+                            self.allFeatured.append(contentsOf: ApiResponse.featured)
                             
                         //    print(self.allFeatured.count)
                             self.featuredCollectionView.reloadData()
@@ -379,7 +379,7 @@ extension HomeViewController{
     }
     
     private func fetchRecommendedData(){
-        guard let url = URL(string: "https://privapi.amkette.com/egpapp_v3/recomended.php?device=2")
+        guard let url = URL(string: "https://privapi.amkette.com/egpapp_v3/recomended.php?device=1")
         else {
             return
         }
