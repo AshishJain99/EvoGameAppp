@@ -188,7 +188,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func searchButtonTapped(){
-        let vc = Search2ViewController()
+        let vc = NewSearchViewController()
         navigationController?.pushViewController(vc, animated: false)
     }
     
