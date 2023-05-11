@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var allRecommended:[recomended] = []
+    var allRecommended:[Recommended] = []
     var allFeatured:[Featured] = []
     var allCategories: [String] = []
     
@@ -357,7 +357,7 @@ extension HomeViewController{
                     DispatchQueue.main.async {
                         do{
                             let ApiResponse = try JSONDecoder().decode(featuredApiResponse.self, from: data!)
-                            self.allFeatured.append(contentsOf: ApiResponse.featured)
+                            self.allFeatured.append(contentsOf: ApiResponse.Featured!)
                             
                         //    print(self.allFeatured.count)
                             self.featuredCollectionView.reloadData()
@@ -379,7 +379,7 @@ extension HomeViewController{
     }
     
     private func fetchRecommendedData(){
-        guard let url = URL(string: "https://privapi.amkette.com/egpapp_v3/recomended.php?device=1")
+        guard let url = URL(string: "https://privapi.amkette.com/egpapp_v3/iosapi/recomended.php")
         else {
             return
         }
@@ -390,7 +390,7 @@ extension HomeViewController{
                     DispatchQueue.main.async {
                         do{
                             let ApiResponse = try JSONDecoder().decode(RecommendedApiResponse.self, from: data!)
-                            self.allRecommended.append(contentsOf: ApiResponse.Recomended!)
+                            self.allRecommended.append(contentsOf: ApiResponse.Recommended!)
                             
                             self.recommendedCollectionView.reloadData()
                             //print(ApiResponse)

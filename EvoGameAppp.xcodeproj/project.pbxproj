@@ -84,7 +84,6 @@
 			children = (
 				960D899129C8BFDE00867786 /* AppDelegate.swift */,
 				960D899329C8BFDE00867786 /* SceneDelegate.swift */,
-				960D89A729C8C0E600867786 /* CustomView */,
 				960D89A529C8C08800867786 /* Models */,
 				960D89A629C8C0CB00867786 /* Views  */,
 				960D89D829D58A6100867786 /* DetailedViewController.swift */,
@@ -115,13 +114,6 @@
 				960D89B129CAF99A00867786 /* HomeView */,
 			);
 			path = "Views ";
-			sourceTree = "<group>";
-		};
-		960D89A729C8C0E600867786 /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomView;
 			sourceTree = "<group>";
 		};
 		960D89A829C8C0FC00867786 /* OnBoarding */ = {
