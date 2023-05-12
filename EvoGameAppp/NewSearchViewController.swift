@@ -23,6 +23,8 @@ class NewSearchViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
+        
         navigationItem.hidesBackButton = true
         
         // Set up the back button
@@ -60,21 +62,42 @@ class NewSearchViewController: UIViewController, UISearchBarDelegate {
         ])
         
         if let textField = searchBar.value(forKey: "searchField") as? UITextField {
-                    textField.textColor = .white
-                }
+            textField.textColor = .white
+        }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+                view.addGestureRecognizer(tapGesture)
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+//        view.addGestureRecognizer(tap)
+
         
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
     }
     
     // MARK: - UISearchBarDelegate
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // Get the updated text from the search bar
+        let enteredText = searchBar.text ?? ""
+        print("Entered text: \(enteredText)")
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // Perform search functionality here
         print("Search button clicked")
+        searchBar.resignFirstResponder() // Dismiss the keyboard
     }
     
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: false)
         print("Back Button tapped")
     }
+    @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        if searchBar.isFirstResponder {
+            searchBar.resignFirstResponder()
+        }
+        
+    }
+    
+    
 }
