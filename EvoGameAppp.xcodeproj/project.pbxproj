@@ -25,6 +25,7 @@
 		960D89DD29D743E200867786 /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D89DC29D743E200867786 /* CategoryCollectionView.swift */; };
 		960D89DF29D74B2700867786 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D89DE29D74B2700867786 /* CategoryCollectionCell.swift */; };
 		9E4838E72A0D576300AD537C /* NewSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4838E62A0D576300AD537C /* NewSearchViewController.swift */; };
+		9E4838E92A129B2300AD537C /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4838E82A129B2300AD537C /* SearchCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		960D89DC29D743E200867786 /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
 		960D89DE29D74B2700867786 /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
 		9E4838E62A0D576300AD537C /* NewSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSearchViewController.swift; sourceTree = "<group>"; };
+		9E4838E82A129B2300AD537C /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				9E4838E62A0D576300AD537C /* NewSearchViewController.swift */,
 				960D89DC29D743E200867786 /* CategoryCollectionView.swift */,
 				960D89DE29D74B2700867786 /* CategoryCollectionCell.swift */,
+				9E4838E82A129B2300AD537C /* SearchCollectionViewCell.swift */,
 				960D899A29C8BFE000867786 /* Assets.xcassets */,
 				960D899729C8BFDE00867786 /* Main.storyboard */,
 				960D899C29C8BFE000867786 /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 				960D89AC29C8C59800867786 /* OnboardingSlide.swift in Sources */,
 				960D899229C8BFDE00867786 /* AppDelegate.swift in Sources */,
 				9E4838E72A0D576300AD537C /* NewSearchViewController.swift in Sources */,
+				9E4838E92A129B2300AD537C /* SearchCollectionViewCell.swift in Sources */,
 				960D89DD29D743E200867786 /* CategoryCollectionView.swift in Sources */,
 				960D89D929D58A6100867786 /* DetailedViewController.swift in Sources */,
 				960D89D529D3510100867786 /* RecommendedCell .swift in Sources */,
