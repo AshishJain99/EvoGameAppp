@@ -11,7 +11,16 @@ class NewSearchViewController: UIViewController, UISearchBarDelegate{
 
     
     
-    let searchDetailedCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    lazy var searchDetailedCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.indentifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
     
     let customView = UIView()
     let backButton: UIButton = {
@@ -30,7 +39,7 @@ class NewSearchViewController: UIViewController, UISearchBarDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .clear
+        view.backgroundColor = .white
         
         navigationItem.hidesBackButton = true
         
@@ -51,13 +60,14 @@ class NewSearchViewController: UIViewController, UISearchBarDelegate{
         
         searchDetailedCollectionView.frame = CGRect(x: 0, y: backButton.frame.height, width: view.frame.width, height: view.frame.height - backButton.frame.height)
         searchDetailedCollectionView.backgroundColor = .clear
+        customView.addSubview(searchBar)
         view.addSubview(searchDetailedCollectionView)
         
         // Set up the search bar
         searchBar.delegate = self
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.searchBarStyle = .minimal
-        customView.addSubview(searchBar)
+        
         
         // Set up constraints
         NSLayoutConstraint.activate([
@@ -90,7 +100,7 @@ class NewSearchViewController: UIViewController, UISearchBarDelegate{
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-                view.addGestureRecognizer(tapGesture)
+               // view.addGestureRecognizer(tapGesture)
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 //        view.addGestureRecognizer(tap)
 
@@ -124,9 +134,7 @@ class NewSearchViewController: UIViewController, UISearchBarDelegate{
         print("Back Button tapped")
     }
     @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
-        if searchBar.isFirstResponder {
-            searchBar.resignFirstResponder()
-        }
+        //searchBar.resignFirstResponder()
         
     }
     
@@ -169,6 +177,7 @@ class NewSearchViewController: UIViewController, UISearchBarDelegate{
 
 extension NewSearchViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         allSearch.count
     }
@@ -179,29 +188,81 @@ extension NewSearchViewController:UICollectionViewDelegate,UICollectionViewDataS
         let imageURL = allSearch[indexPath.row].CoverImage!
         cell!.recommendedGetImage(urlString: imageURL)
         cell!.searchTextLabel.text = AppName
+        cell!.isUserInteractionEnabled = true
         return cell!
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let detailVC = DetailedViewController()
-//        let data = allCategoryResponse[indexPath.row]
-//        detailVC.setBackG(CoverImage: data.CoverImage!, Screenshot1: data.Screenshot1!, Screenshot2: data.Screenshot2!, Screenshot3: data.Screenshot3!, Screenshot4: data.Screenshot4!,Icon: data.Icon!,gameName: data.AppName!,devName: data.Author!,description: data.Description!)
-//                navigationController?.pushViewController(detailVC, animated: false)
+//
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        
+        print(indexPath)
+                let detailVC = DetailedViewController()
+                let data = allSearch[indexPath.row]
+                detailVC.setBackG(
+                    CoverImage: data.CoverImage!,
+                    Screenshot1: data.Screenshot1!,
+                    Screenshot2: data.Screenshot2!,
+                    Screenshot3: data.Screenshot3!,
+                    Screenshot4: data.Screenshot4!,
+                    Icon: data.Icon!,
+                    gameName: data.AppName!,
+                    devName: data.Author!,
+                    description: data.Description!
+                )
+                navigationController?.pushViewController(detailVC, animated: false)
+            }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let cellWidth = collectionView.bounds.width / 2 - 15 // Adjust the cell width and spacing as desired
+//        let cellHeight: CGFloat = 200 // Adjust the cell height as desired
+//        return CGSize(width: cellWidth, height: cellHeight)
 //    }
-    
+//
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        // Return the desired interitem spacing
+//        return 10
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        // Return the desired line spacing
+//        return 10
+//    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let cellWidth = collectionView.bounds.width / 5   // Adjust the cell width and spacing as desired
-            let cellHeight = collectionView.bounds.height / 2.5
-            return CGSize(width: cellWidth, height: cellHeight)
-        }
-
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 5  // Adjust the spacing as desired
-        }
-
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 8  // Adjust the spacing as desired
+            let spacing: CGFloat = 10 // Adjust the spacing between cells as desired
+            let width = (collectionView.bounds.width - spacing * 3) / 2 // Adjust the number of items per row and spacing as desired
+            let height: CGFloat = 200 // Adjust the cell height as desired
+            return CGSize(width: width, height: height)
         }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let spacing: CGFloat = 10 // Adjust the spacing between cells as desired
+        return UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        let spacing: CGFloat = 10 // Adjust the spacing between cells as desired
+        return spacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        let spacing: CGFloat = 10 // Adjust the spacing between cells as desired
+        return spacing
+    }
     
+    
+}
+
+class CustomCollectionViewFlowLayout: UICollectionViewFlowLayout {
+    override func prepare() {
+        super.prepare()
+        guard let collectionView = collectionView else { return }
+        let spacing: CGFloat = 10 // Adjust the spacing between cells as desired
+        let width = (collectionView.bounds.width - spacing * 3) / 2 // Adjust the number of items per row and spacing as desired
+        let height: CGFloat = 200 // Adjust the cell height as desired
+        itemSize = CGSize(width: width, height: height)
+        sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        minimumLineSpacing = spacing
+        minimumInteritemSpacing = spacing
+    }
 }
