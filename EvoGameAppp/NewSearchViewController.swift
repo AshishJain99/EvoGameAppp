@@ -36,10 +36,21 @@ class NewSearchViewController: UIViewController, UISearchBarDelegate{
     
     var allSearch:[Search] = []
     
+//    let backgroundImageView:UIImageView={
+//        let image = UIImageView()
+//        image.image = UIImage(named: "BackG")
+//        image.contentMode = .scaleToFill
+////        image.frame = view.bounds
+//        return image
+//    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        //view.backgroundColor = .white
+        
+        
+        //view.addSubview(backgroundImageView)
         
         navigationItem.hidesBackButton = true
         
@@ -206,7 +217,7 @@ extension NewSearchViewController:UICollectionViewDelegate,UICollectionViewDataS
                     Icon: data.Icon!,
                     gameName: data.AppName!,
                     devName: data.Author!,
-                    description: data.Description!
+                    description: data.Description!, IosId: data.IosID ?? "xx"
                 )
                 navigationController?.pushViewController(detailVC, animated: false)
             }

@@ -28,6 +28,18 @@ class DetailedViewController: UIViewController {
         return image!
     }()
     
+    let downloadButton:UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .red
+        button.setTitle("DOWNLOAD", for: .normal)
+        button.contentMode = .scaleAspectFit
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        return button
+    }()
+    
+    var tempIosId:String = ""
+    
     private let image1:UIImageView={
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
@@ -64,6 +76,10 @@ class DetailedViewController: UIViewController {
     
     let gameNameLabel:UILabel={
         let label = UILabel()
+        //label.backgroundColor = .white
+        label.numberOfLines = 1 // Display text in a single line
+        label.adjustsFontSizeToFitWidth = true // Enable font size adjustment
+        label.minimumScaleFactor = 0.5
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
         return label
@@ -96,6 +112,7 @@ class DetailedViewController: UIViewController {
         super.viewDidLoad()
         
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        downloadButton.addTarget(self, action: #selector(downloadButtonTapped), for: .touchUpInside)
         
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
@@ -118,7 +135,10 @@ class DetailedViewController: UIViewController {
         appIcon.frame = CGRect(x: 20, y: 0, width: view.frame.width*0.1, height: view.frame.width*0.1)
         appIcon.layer.cornerRadius = 10
         
-        gameNameLabel.frame = CGRect(x: appIcon.frame.maxX+5, y: appIcon.frame.minY, width: view.frame.width-appIcon.frame.maxX, height: appIcon.frame.height*0.45)
+        gameNameLabel.frame = CGRect(x: appIcon.frame.maxX+5, y: appIcon.frame.minY, width: (view.frame.width-imageScrollView.frame.maxX-appIcon.frame.width)/2, height: appIcon.frame.height*0.45)
+        
+        downloadButton.frame = CGRect(x: gameNameLabel.frame.maxX+25, y: gameNameLabel.frame.minY, width: view.frame.width/5, height: gameNameLabel.frame.height)
+        
         
         developerNameLabel.frame = CGRect(x: appIcon.frame.maxX+5, y: gameNameLabel.frame.maxY, width: view.frame.width-appIcon.frame.maxX, height: appIcon.frame.height*0.35)
         descriptionText.frame = CGRect(x: appIcon.frame.minX, y: appIcon.frame.maxY+10, width: contentScrollView.frame.width-appIcon.frame.minX-20, height: view.frame.height-descriptionText.frame.minY)
@@ -140,6 +160,7 @@ class DetailedViewController: UIViewController {
         
         contentScrollView.addSubview(appIcon)
         contentScrollView.addSubview(gameNameLabel)
+        contentScrollView.addSubview(downloadButton)
         contentScrollView.addSubview(developerNameLabel)
         contentScrollView.addSubview(descriptionText)
         
@@ -149,8 +170,16 @@ class DetailedViewController: UIViewController {
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: false)
     }
+    @objc func downloadButtonTapped(){
+        //IosId
+        if let appStoreURL = URL(string: "https://apps.apple.com/app/\(tempIosId)") {
+            UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
+            print(appStoreURL)
+        }
+        
+    }
     
-    func setBackG(CoverImage: String,Screenshot1:String,Screenshot2:String,Screenshot3:String,Screenshot4:String,Icon:String,gameName:String,devName:String,description:String){
+    func setBackG(CoverImage: String,Screenshot1:String,Screenshot2:String,Screenshot3:String,Screenshot4:String,Icon:String,gameName:String,devName:String,description:String,IosId:String){
         getApiImage.setBackG(urlString: CoverImage){image in
             DispatchQueue.main.async {
                 self.backgroundImageView.image = image
@@ -182,10 +211,24 @@ class DetailedViewController: UIViewController {
                         }
         }
         
+        tempIosId = IosId
         gameNameLabel.text = gameName
         developerNameLabel.text = devName
-        descriptionText.text = description
+        
+        descriptionText.text = convertHTMLToPlainText(htmlText: description)
 
+    }
+    
+    func convertHTMLToPlainText(htmlText: String) -> String? {
+        guard let data = htmlText.data(using: .utf8) else {
+            return nil
+        }
+        
+        if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+            return attributedString.string
+        } else {
+            return nil
+        }
     }
     
 }
