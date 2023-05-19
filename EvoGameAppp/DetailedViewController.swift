@@ -10,7 +10,6 @@ import UIKit
 class DetailedViewController: UIViewController {
 
     let imageScrollView=UIScrollView()
-    let contentScrollView=UIScrollView()
     
     let getApiImage = GetApiImage()
     
@@ -23,6 +22,7 @@ class DetailedViewController: UIViewController {
         button.clipsToBounds = true
         return button
     }()
+    
     let backButtonImage:UIImage={
        let image = UIImage(named:"leftArrowButton")
         return image!
@@ -54,12 +54,14 @@ class DetailedViewController: UIViewController {
         imageView.clipsToBounds = true
         return imageView
     }()
+    
     private let image3:UIImageView={
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
         return imageView
     }()
+    
     private let image4:UIImageView={
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
@@ -120,19 +122,18 @@ class DetailedViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        backgroundImageView.contentMode = .scaleToFill
-        backgroundImageView.frame = view.bounds
+//        backgroundImageView.contentMode = .scaleToFill
+//        backgroundImageView.frame = view.bounds
         
         backButton.frame = CGRect(x: 20, y: 20, width: 50, height: 50)
         imageScrollView.frame = CGRect(x: backButton.frame.minX, y: backButton.frame.maxY, width: view.frame.width*0.3, height: view.frame.height-backButton.frame.maxY)
-        contentScrollView.frame = CGRect(x: imageScrollView.frame.maxX+10, y: imageScrollView.frame.minY, width: view.frame.width-imageScrollView.frame.width-10, height: view.frame.height-backButton.frame.maxY)
         
         image1.frame = CGRect(x: 0, y: 0, width: imageScrollView.frame.width, height: view.frame.height/3)
         image2.frame = CGRect(x: 0, y: image1.frame.maxY+20, width: imageScrollView.frame.width, height: view.frame.height/3)
         image3.frame = CGRect(x: 0, y: image2.frame.maxY+20, width: imageScrollView.frame.width, height: view.frame.height/3)
         image4.frame = CGRect(x: 0, y: image3.frame.maxY+20, width: imageScrollView.frame.width, height: view.frame.height/3)
         
-        appIcon.frame = CGRect(x: 20, y: 0, width: view.frame.width*0.1, height: view.frame.width*0.1)
+        appIcon.frame = CGRect(x: imageScrollView.frame.width+50, y: imageScrollView.frame.minY, width: view.frame.width*0.1, height: view.frame.width*0.1)
         appIcon.layer.cornerRadius = 10
         
         gameNameLabel.frame = CGRect(x: appIcon.frame.maxX+5, y: appIcon.frame.minY, width: (view.frame.width-imageScrollView.frame.maxX-appIcon.frame.width)/2, height: appIcon.frame.height*0.45)
@@ -141,28 +142,31 @@ class DetailedViewController: UIViewController {
         
         
         developerNameLabel.frame = CGRect(x: appIcon.frame.maxX+5, y: gameNameLabel.frame.maxY, width: view.frame.width-appIcon.frame.maxX, height: appIcon.frame.height*0.35)
-        descriptionText.frame = CGRect(x: appIcon.frame.minX, y: appIcon.frame.maxY+10, width: contentScrollView.frame.width-appIcon.frame.minX-20, height: view.frame.height-descriptionText.frame.minY)
+        
+        descriptionText.frame = CGRect(x: appIcon.frame.minX, y: appIcon.frame.maxY + 10, width: view.frame.width - appIcon.frame.minX - 20, height: view.frame.height - (appIcon.frame.maxY + 10) - 20)
+
         
         imageScrollView.backgroundColor = .clear
-        contentScrollView.backgroundColor = .clear
         
         view.addSubview(backgroundImageView)
         view.sendSubviewToBack(backgroundImageView)
         
         view.addSubview(backButton)
         view.addSubview(imageScrollView)
-        view.addSubview(contentScrollView)
+
         
         imageScrollView.addSubview(image1)
         imageScrollView.addSubview(image2)
         imageScrollView.addSubview(image3)
         imageScrollView.addSubview(image4)
         
-        contentScrollView.addSubview(appIcon)
-        contentScrollView.addSubview(gameNameLabel)
-        contentScrollView.addSubview(downloadButton)
-        contentScrollView.addSubview(developerNameLabel)
-        contentScrollView.addSubview(descriptionText)
+        view.addSubview(appIcon)
+        view.addSubview(gameNameLabel)
+        view.addSubview(downloadButton)
+        view.addSubview(developerNameLabel)
+    
+        
+        view.addSubview(descriptionText)
         
         imageScrollView.contentSize = CGSize(width: imageScrollView.frame.width, height: image4.frame.maxY)
     }
