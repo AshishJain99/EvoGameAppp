@@ -222,12 +222,12 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         if collectionView == recommendedCollectionView{
             let detailVC = DetailedViewController()
             let data = allRecommended[indexPath.row]
-            detailVC.setBackG(CoverImage: data.CoverImage!, Screenshot1: data.Screenshot1!, Screenshot2: data.Screenshot2!, Screenshot3: data.Screenshot3!, Screenshot4: data.Screenshot4!,Icon: data.Icon!,gameName: data.AppName!,devName: data.Author!,description: data.Description!, IosId: data.IosID ?? "xx")
+            detailVC.setBackG(CoverImage: data.CoverImage!, Screenshot1: data.Screenshot1!, Screenshot2: data.Screenshot2!, Screenshot3: data.Screenshot3!, Screenshot4: data.Screenshot4!,Icon: data.Icon!,gameName: data.AppName!,devName: data.Author!,description: data.Description!, IosId: data.IosID ?? "xx",downloadsData: data.IosInstallCount ?? "N/A",ratingsData: data.IosRatings ?? "N/A",priceData: data.IosINR ?? "Free")
                     navigationController?.pushViewController(detailVC, animated: false)
         }else if collectionView == featuredCollectionView{
             let detailVC = DetailedViewController()
             let data = allFeatured[indexPath.row]
-            detailVC.setBackG(CoverImage: data.CoverImage!, Screenshot1: data.Screenshot1!, Screenshot2: data.Screenshot2!, Screenshot3: data.Screenshot3!, Screenshot4: data.Screenshot4!,Icon: data.Icon!,gameName: data.AppName!,devName: data.Author!,description: data.Description!, IosId: data.IosID ?? "xx")
+            detailVC.setBackG(CoverImage: data.CoverImage!, Screenshot1: data.Screenshot1!, Screenshot2: data.Screenshot2!, Screenshot3: data.Screenshot3!, Screenshot4: data.Screenshot4!,Icon: data.Icon!,gameName: data.AppName!,devName: data.Author!,description: data.Description!, IosId: data.IosID ?? "xx",downloadsData: data.IosInstallCount ?? "N/A",ratingsData: data.IosRatings ?? "N/A",priceData: data.IosINR ?? "Free")
                     navigationController?.pushViewController(detailVC, animated: false)
         }else if collectionView == categoriesCollectionView{
             let VC = CategoryCollectionView()

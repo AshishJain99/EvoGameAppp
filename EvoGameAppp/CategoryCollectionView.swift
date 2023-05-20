@@ -74,7 +74,7 @@ extension CategoryCollectionView:UICollectionViewDelegate,UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = DetailedViewController()
         let data = allCategoryResponse[indexPath.row]
-        detailVC.setBackG(CoverImage: data.CoverImage!, Screenshot1: data.Screenshot1!, Screenshot2: data.Screenshot2!, Screenshot3: data.Screenshot3!, Screenshot4: data.Screenshot4!,Icon: data.Icon!,gameName: data.AppName!,devName: data.Author!,description: data.Description!, IosId: data.IosID ?? "xx")
+        detailVC.setBackG(CoverImage: data.CoverImage!, Screenshot1: data.Screenshot1!, Screenshot2: data.Screenshot2!, Screenshot3: data.Screenshot3!, Screenshot4: data.Screenshot4!,Icon: data.Icon!,gameName: data.AppName!,devName: data.Author!,description: data.Description!, IosId: data.IosID ?? "",downloadsData: data.IosInstallCount ?? "N/A",ratingsData: data.IosRatings ?? "N/A",priceData: data.IosINR ?? "Free")
                 navigationController?.pushViewController(detailVC, animated: false)
     }
     

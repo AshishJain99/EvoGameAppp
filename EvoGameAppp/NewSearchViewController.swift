@@ -218,6 +218,7 @@ extension NewSearchViewController:UICollectionViewDelegate,UICollectionViewDataS
                     gameName: data.AppName!,
                     devName: data.Author!,
                     description: data.Description!, IosId: data.IosID ?? "xx"
+                    ,downloadsData: data.IosInstallCount ?? "N/A",ratingsData: data.IosRatings ?? "N/A",priceData: data.IosINR ?? "Free"
                 )
                 navigationController?.pushViewController(detailVC, animated: false)
             }

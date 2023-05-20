@@ -110,6 +110,99 @@ class DetailedViewController: UIViewController {
         return image
     }()
     
+    private let downloadsView:UIView={
+       let view = UIView()
+        view.layer.borderColor = UIColor.red.cgColor
+        view.layer.borderWidth = 3
+        return view
+    }()
+
+    private let downloadLabel:UILabel={
+        let label = UILabel()
+        label.text = "Downloads"
+        label.textColor = .white
+        label.numberOfLines = 1 // Display text in a single line
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let downloadDataLabel:UILabel={
+        let label = UILabel()
+        label.text = "100"
+        label.textColor = .white
+        label.numberOfLines = 1 // Display text in a single line
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.boldSystemFont(ofSize: 50)
+        //label.backgroundColor = .white
+        label.textAlignment = .center
+        label.contentMode = .scaleAspectFill
+        return label
+    }()
+    
+    private let ratingsView:UIView={
+        let view = UIView()
+         view.layer.borderColor = UIColor.red.cgColor
+         view.layer.borderWidth = 3
+         return view
+    }()
+    
+    private let ratingLabel:UILabel={
+        let label = UILabel()
+        label.text = "Rating"
+        label.textColor = .white
+        label.numberOfLines = 1 // Display text in a single line
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let ratingDataLabel:UILabel={
+        let label = UILabel()
+        label.text = "100"
+        label.textColor = .white
+        label.numberOfLines = 1 // Display text in a single line
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.boldSystemFont(ofSize: 50)
+        //label.backgroundColor = .white
+        label.textAlignment = .center
+        label.contentMode = .scaleAspectFill
+        return label
+    }()
+    
+    private let priceView:UIView={
+        let view = UIView()
+         view.layer.borderColor = UIColor.red.cgColor
+         view.layer.borderWidth = 3
+         return view
+    }()
+    
+    private let priceLabel:UILabel={
+        let label = UILabel()
+        label.text = "Price"
+        label.textColor = .white
+        label.numberOfLines = 1 // Display text in a single line
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let priceDataLabel:UILabel={
+        let label = UILabel()
+        label.text = "100"
+        label.textColor = .white
+        label.numberOfLines = 1 // Display text in a single line
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.boldSystemFont(ofSize: 50)
+        //label.backgroundColor = .white
+        label.textAlignment = .center
+        label.contentMode = .scaleAspectFill
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -143,7 +236,38 @@ class DetailedViewController: UIViewController {
         
         developerNameLabel.frame = CGRect(x: appIcon.frame.maxX+5, y: gameNameLabel.frame.maxY, width: view.frame.width-appIcon.frame.maxX, height: appIcon.frame.height*0.35)
         
-        descriptionText.frame = CGRect(x: appIcon.frame.minX, y: appIcon.frame.maxY + 10, width: view.frame.width - appIcon.frame.minX - 20, height: view.frame.height - (appIcon.frame.maxY + 10) - 20)
+        let appIconWidth = appIcon.frame.width
+        let appIconHeight = appIcon.frame.height
+        
+        
+        
+        downloadsView.frame = CGRect(x: appIcon.frame.minX, y: appIcon.frame.maxY+10, width: (appIconWidth)*0.9, height: appIconHeight*0.9)
+        
+        downloadLabel.frame = CGRect(x: downloadsView.frame.minX, y: downloadsView.frame.maxY+10, width: downloadsView.frame.width, height: 20)
+        
+        let frameYPosition = (downloadsView.frame.height-downloadsView.frame.height*0.4)/2
+        
+        downloadDataLabel.frame = CGRect(x: 0, y: frameYPosition, width: downloadsView.frame.width, height: downloadsView.frame.height*0.4)
+        
+        let ratingsViewX = (view.frame.width-downloadsView.frame.maxX)/2-downloadsView.frame.width+downloadsView.frame.maxX
+        
+        ratingsView.frame = CGRect(x: ratingsViewX, y: appIcon.frame.maxY+10, width: (appIconWidth)*0.9, height: appIconHeight*0.9)
+        
+        ratingDataLabel.frame = CGRect(x: 0, y: frameYPosition, width: downloadsView.frame.width, height: downloadsView.frame.height*0.4)
+        
+        ratingLabel.frame = CGRect(x: ratingsView.frame.minX, y: ratingsView.frame.maxY+10, width: ratingsView.frame.width, height: 20)
+
+        let priceViewXPoint = (view.frame.width-ratingsView.frame.maxX)-ratingsView.frame.width+ratingsView.frame.maxX
+        
+        priceView.frame = CGRect(x: priceViewXPoint, y: appIcon.frame.maxY+10, width: (appIconWidth)*0.9, height: appIconHeight*0.9)
+
+        priceLabel.frame = CGRect(x: priceView.frame.minX, y: priceView.frame.maxY+10, width: priceView.frame.width, height: 20)
+        
+        priceDataLabel.frame = CGRect(x: 0, y: frameYPosition, width: downloadsView.frame.width, height: downloadsView.frame.height*0.4)
+        
+        //downloadsView.backgroundColor = .systemRed
+        
+        descriptionText.frame = CGRect(x: appIcon.frame.minX, y: priceLabel.frame.maxY + 10, width: view.frame.width - appIcon.frame.minX - 20, height: view.frame.height - (priceLabel.frame.maxY + 10) - 20)
 
         
         imageScrollView.backgroundColor = .clear
@@ -164,6 +288,16 @@ class DetailedViewController: UIViewController {
         view.addSubview(gameNameLabel)
         view.addSubview(downloadButton)
         view.addSubview(developerNameLabel)
+        view.addSubview(downloadsView)
+        view.addSubview(downloadLabel)
+        view.addSubview(ratingsView)
+        view.addSubview(ratingLabel)
+        view.addSubview(priceView)
+        view.addSubview(priceLabel)
+        
+        downloadsView.addSubview(downloadDataLabel)
+        ratingsView.addSubview(ratingDataLabel)
+        priceView.addSubview(priceDataLabel)
     
         
         view.addSubview(descriptionText)
@@ -183,7 +317,7 @@ class DetailedViewController: UIViewController {
         
     }
     
-    func setBackG(CoverImage: String,Screenshot1:String,Screenshot2:String,Screenshot3:String,Screenshot4:String,Icon:String,gameName:String,devName:String,description:String,IosId:String){
+    func setBackG(CoverImage: String,Screenshot1:String,Screenshot2:String,Screenshot3:String,Screenshot4:String,Icon:String,gameName:String,devName:String,description:String,IosId:String,downloadsData:String,ratingsData:String,priceData:String){
         getApiImage.setBackG(urlString: CoverImage){image in
             DispatchQueue.main.async {
                 self.backgroundImageView.image = image
@@ -218,6 +352,17 @@ class DetailedViewController: UIViewController {
         tempIosId = IosId
         gameNameLabel.text = gameName
         developerNameLabel.text = devName
+        
+        downloadDataLabel.text = downloadsData
+        ratingDataLabel.text = ratingsData
+        
+        if priceData == "0"{
+            priceDataLabel.text = "Free"
+        }else{
+            priceDataLabel.text = "₹\(priceData)"
+        }
+        
+        
         
         descriptionText.text = convertHTMLToPlainText(htmlText: description)
 
