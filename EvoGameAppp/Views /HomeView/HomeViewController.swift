@@ -89,11 +89,63 @@ class HomeViewController: UIViewController {
         return image
     }()
     
+    let controllerConnectedImageView:UIImageView={
+        let image = UIImageView()
+        image.backgroundColor = .clear
+        image.tintColor = .white
+        image.contentMode = .scaleToFill
+        return image
+    }()
+    
+    let internetConnectionImageView:UIImageView={
+        let image = UIImageView()
+        image.backgroundColor = .clear
+        image.tintColor = .white
+        image.contentMode = .scaleToFill
+        return image
+    }()
+    
+    let batteryImageView:UIImageView={
+        let image = UIImageView()
+        image.backgroundColor = .clear
+        image.tintColor = .white
+        image.contentMode = .scaleToFill
+        
+        return image
+    }()
+    
+    let batteryPerLabel:UILabel={
+       let label = UILabel()
+        label.numberOfLines = 1 // Display text in a single line
+        label.adjustsFontSizeToFitWidth = true // Enable font size adjustment
+        //label.minimumScaleFactor = 0.5
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        return label
+    }()
+    
+    let timeLabel:UILabel={
+        let label = UILabel()
+         label.numberOfLines = 1 // Display text in a single line
+         label.adjustsFontSizeToFitWidth = true // Enable font size adjustment
+//         label.minimumScaleFactor = 0.5
+         label.textColor = .white
+         label.font = UIFont.boldSystemFont(ofSize: 30)
+         return label
+    }()
+    
+    let topBarValue = TopBarViewFile()
+    
+    let topBarView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     override var prefersStatusBarHidden: Bool{
         return true
     }
     
-    var data = [Model]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +158,8 @@ class HomeViewController: UIViewController {
         
         searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         
+        evoButton.addTarget(self, action: #selector(evoButtonTapped), for: .touchUpInside)
+        
         recommendedCollectionView.register(RecommendedCell.self, forCellWithReuseIdentifier: RecommendedCell.indentifier)
         
         featuredCollectionView.register(FeaturedCell.self, forCellWithReuseIdentifier: FeaturedCell.indentifier)
@@ -113,8 +167,6 @@ class HomeViewController: UIViewController {
         categoriesCollectionView.register(CategoriesCell.self, forCellWithReuseIdentifier: CategoriesCell.indentifier)
         // Do any additional setup after loading the view.
         
-        print(getTime())
-        print(getBattery())
         recommendedCollectionView.dataSource = self
         recommendedCollectionView.delegate = self
         
@@ -161,6 +213,32 @@ class HomeViewController: UIViewController {
         categoriesCollectionView.frame = CGRect(x: 20, y: categoriesLabel.frame.maxY+20, width: scrollView.frame.width-20, height: (view.frame.height-(evoButton.frame.maxY+10))/3.3)
         
         
+        topBarView.frame = CGRect(x: view.frame.midX+view.frame.midX/2-30, y: 20, width: view.frame.width/4, height: view.frame.height*0.1)
+        
+        let topBarViewWidth = topBarView.frame.width
+        let topBarViewheight = topBarView.frame.height
+        
+        let topBarImageViewWidth = (topBarViewWidth/5)/2
+       // let topBarImageViewHeight = topBarViewheight/1.5
+        
+        controllerConnectedImageView.frame = CGRect(x: 0, y: 0, width: topBarImageViewWidth, height: topBarImageViewWidth)
+        
+        internetConnectionImageView.frame = CGRect(x: controllerConnectedImageView.frame.width+10, y: 0, width: topBarImageViewWidth, height: topBarImageViewWidth)
+        
+        batteryImageView.frame = CGRect(x: internetConnectionImageView.frame.maxX+10, y: 0, width: topBarImageViewWidth, height: topBarImageViewWidth)
+        
+        batteryPerLabel.frame = CGRect(x: batteryImageView.frame.maxX+10, y: 0, width: topBarImageViewWidth*1.7, height: topBarImageViewWidth)
+        
+        timeLabel.frame = CGRect(x: batteryPerLabel.frame.maxX+10, y: controllerConnectedImageView.frame.minY, width: topBarImageViewWidth*2.2, height: topBarImageViewWidth)
+        
+        controllerConnectedImageView.image = topBarValue.getConsollerStatus()
+        internetConnectionImageView.image = topBarValue.getNetworkConnectivityType()
+        batteryImageView.image = topBarValue.getBatteryImage()
+        batteryPerLabel.text = topBarValue.getBatteryPercentage()
+        timeLabel.text = topBarValue.getTime()
+        
+        //topBarValue
+        
         //scrollView.backgroundColor = .red
         recommendedCollectionView.backgroundColor = .clear
         featuredCollectionView.backgroundColor = .clear
@@ -185,32 +263,40 @@ class HomeViewController: UIViewController {
         scrollView.addSubview(categoriesCollectionView)
         
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: categoriesCollectionView.frame.maxY)
+        
+        view.addSubview(topBarView)
+        topBarView.addSubview(controllerConnectedImageView)
+        topBarView.addSubview(internetConnectionImageView)
+        topBarView.addSubview(batteryImageView)
+        topBarView.addSubview(batteryPerLabel)
+        topBarView.addSubview(timeLabel)
+        
+        if allRecommended.isEmpty{
+            fetchCategoriesData()
+            fetchFeaturedData()
+            fetchRecommendedData()
+        }
+        
+        
     }
     
     @objc func searchButtonTapped(){
         let vc = NewSearchViewController()
         navigationController?.pushViewController(vc, animated: false)
     }
-    
-    func getTime()->String{
-        let today = Date()
-        var hours = (Calendar.current.component(.hour, from: today))
-        let minutes = (Calendar.current.component(.minute, from: today))
-        var AM = "AM"
+    @objc func evoButtonTapped(){
         
-        if hours>=12{
-            hours = hours%12
-            AM = "PM"
-        }
-        
-        return "\(hours):\(minutes)\(AM)"
+        print("EvoButton Tapped")
+        let vc = EvoAboutViewController()
+        navigationController?.pushViewController(vc, animated: false)
     }
+
     
-    func getBattery()->String{
-        UIDevice.current.isBatteryMonitoringEnabled = true
-        let level = Int(abs(UIDevice.current.batteryLevel))
-        return String(level*100)
-    }
+//    func getBattery()->String{
+//        UIDevice.current.isBatteryMonitoringEnabled = true
+//        let level = Int(abs(UIDevice.current.batteryLevel))
+//        return String(level*100)
+//    }
     
     
 }
@@ -300,17 +386,6 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     }
 }
 
-struct Model{
-    let text:String
-    let imageName:String
-    
-    init(text: String, imageName: String) {
-        self.text = text
-        self.imageName = imageName
-    }
-    
-    
-}
 extension HomeViewController{
     
     private func fetchCategoriesData(){
@@ -412,3 +487,4 @@ extension HomeViewController{
     
     
 }
+

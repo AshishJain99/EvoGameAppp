@@ -203,6 +203,60 @@ class DetailedViewController: UIViewController {
         return label
     }()
     
+    let controllerConnectedImageView:UIImageView={
+        let image = UIImageView()
+        image.backgroundColor = .clear
+        image.tintColor = .white
+        image.contentMode = .scaleToFill
+        return image
+    }()
+    
+    let internetConnectionImageView:UIImageView={
+        let image = UIImageView()
+        image.backgroundColor = .clear
+        image.tintColor = .white
+        image.contentMode = .scaleToFill
+        return image
+    }()
+    
+    let batteryImageView:UIImageView={
+        let image = UIImageView()
+        image.backgroundColor = .clear
+        image.tintColor = .white
+        image.contentMode = .scaleToFill
+        
+        return image
+    }()
+    
+    let batteryPerLabel:UILabel={
+       let label = UILabel()
+        label.numberOfLines = 1 // Display text in a single line
+        label.adjustsFontSizeToFitWidth = true // Enable font size adjustment
+        //label.minimumScaleFactor = 0.5
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        return label
+    }()
+    
+    let timeLabel:UILabel={
+        let label = UILabel()
+         label.numberOfLines = 1 // Display text in a single line
+         label.adjustsFontSizeToFitWidth = true // Enable font size adjustment
+//         label.minimumScaleFactor = 0.5
+         label.textColor = .white
+         label.font = UIFont.boldSystemFont(ofSize: 30)
+         return label
+    }()
+    
+    let topBarValue = TopBarViewFile()
+    
+    let topBarView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -268,6 +322,30 @@ class DetailedViewController: UIViewController {
         //downloadsView.backgroundColor = .systemRed
         
         descriptionText.frame = CGRect(x: appIcon.frame.minX, y: priceLabel.frame.maxY + 10, width: view.frame.width - appIcon.frame.minX - 20, height: view.frame.height - (priceLabel.frame.maxY + 10) - 20)
+        
+        topBarView.frame = CGRect(x: view.frame.midX+view.frame.midX/2-30, y: 20, width: view.frame.width/4, height: view.frame.height*0.1)
+        
+        let topBarViewWidth = topBarView.frame.width
+        let topBarViewheight = topBarView.frame.height
+        
+        let topBarImageViewWidth = (topBarViewWidth/5)/2
+        
+        controllerConnectedImageView.frame = CGRect(x: 0, y: 0, width: topBarImageViewWidth, height: topBarImageViewWidth)
+        
+        internetConnectionImageView.frame = CGRect(x: controllerConnectedImageView.frame.width+10, y: 0, width: topBarImageViewWidth, height: topBarImageViewWidth)
+        
+        batteryImageView.frame = CGRect(x: internetConnectionImageView.frame.maxX+10, y: 0, width: topBarImageViewWidth, height: topBarImageViewWidth)
+        
+        batteryPerLabel.frame = CGRect(x: batteryImageView.frame.maxX+10, y: 0, width: topBarImageViewWidth*1.7, height: topBarImageViewWidth)
+        
+        timeLabel.frame = CGRect(x: batteryPerLabel.frame.maxX+10, y: controllerConnectedImageView.frame.minY, width: topBarImageViewWidth*2.2, height: topBarImageViewWidth)
+        
+        controllerConnectedImageView.image = topBarValue.getConsollerStatus()
+        internetConnectionImageView.image = topBarValue.getNetworkConnectivityType()
+        batteryImageView.image = topBarValue.getBatteryImage()
+        batteryPerLabel.text = topBarValue.getBatteryPercentage()
+        timeLabel.text = topBarValue.getTime()
+        
 
         
         imageScrollView.backgroundColor = .clear
@@ -301,6 +379,14 @@ class DetailedViewController: UIViewController {
     
         
         view.addSubview(descriptionText)
+        
+        
+        view.addSubview(topBarView)
+        topBarView.addSubview(controllerConnectedImageView)
+        topBarView.addSubview(internetConnectionImageView)
+        topBarView.addSubview(batteryImageView)
+        topBarView.addSubview(batteryPerLabel)
+        topBarView.addSubview(timeLabel)
         
         imageScrollView.contentSize = CGSize(width: imageScrollView.frame.width, height: image4.frame.maxY)
     }

@@ -26,6 +26,8 @@
 		960D89DF29D74B2700867786 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D89DE29D74B2700867786 /* CategoryCollectionCell.swift */; };
 		9E4838E72A0D576300AD537C /* NewSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4838E62A0D576300AD537C /* NewSearchViewController.swift */; };
 		9E4838E92A129B2300AD537C /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4838E82A129B2300AD537C /* SearchCollectionViewCell.swift */; };
+		9EB923072A1A342300230F75 /* TopBarViewFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB923062A1A342300230F75 /* TopBarViewFile.swift */; };
+		9EBC14862A1D2234007697A0 /* EvoAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBC14852A1D2234007697A0 /* EvoAboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		960D89DE29D74B2700867786 /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
 		9E4838E62A0D576300AD537C /* NewSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSearchViewController.swift; sourceTree = "<group>"; };
 		9E4838E82A129B2300AD537C /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		9EB923062A1A342300230F75 /* TopBarViewFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarViewFile.swift; sourceTree = "<group>"; };
+		9EBC14852A1D2234007697A0 /* EvoAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvoAboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 				960D89A529C8C08800867786 /* Models */,
 				960D89A629C8C0CB00867786 /* Views  */,
 				960D89D829D58A6100867786 /* DetailedViewController.swift */,
+				9EB923062A1A342300230F75 /* TopBarViewFile.swift */,
 				9E4838E62A0D576300AD537C /* NewSearchViewController.swift */,
 				960D89DC29D743E200867786 /* CategoryCollectionView.swift */,
 				960D89DE29D74B2700867786 /* CategoryCollectionCell.swift */,
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				960D89B229CAF9B200867786 /* HomeViewController.swift */,
+				9EBC14852A1D2234007697A0 /* EvoAboutViewController.swift */,
 				960D89DA29D5B8D800867786 /* GetApiImage.swift */,
 				960D89C029CEFC2C00867786 /* Models.swift */,
 				960D89D229D1FC2C00867786 /* FeaturedCell.swift */,
@@ -220,6 +226,8 @@
 				960D89D929D58A6100867786 /* DetailedViewController.swift in Sources */,
 				960D89D529D3510100867786 /* RecommendedCell .swift in Sources */,
 				960D89AE29C8CCF200867786 /* OnboardingCollectionViewCell.swift in Sources */,
+				9EBC14862A1D2234007697A0 /* EvoAboutViewController.swift in Sources */,
+				9EB923072A1A342300230F75 /* TopBarViewFile.swift in Sources */,
 				960D899429C8BFDE00867786 /* SceneDelegate.swift in Sources */,
 				960D89AA29C8C1A800867786 /* OnboardingViewController.swift in Sources */,
 				960D89D729D352B000867786 /* CategoriesCell.swift in Sources */,
@@ -300,7 +308,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -354,7 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -374,6 +382,7 @@
 				DEVELOPMENT_TEAM = 29M4S87GY3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EvoGameAppp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -401,6 +410,7 @@
 				DEVELOPMENT_TEAM = 29M4S87GY3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EvoGameAppp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
