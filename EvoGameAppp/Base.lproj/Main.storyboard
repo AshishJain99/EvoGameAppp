@@ -1,116 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WBJ-PS-Pck">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="flb-uc-jzY">
     <device id="retina6_12" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Onboarding View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="EvoGameAppp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="epI-EQ-4FQ">
-                                <rect key="frame" x="42.666666666666686" y="29.333333333333343" width="766.66666666666652" height="295"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rMH-ok-yz6">
-                                    <size key="itemSize" width="766.66666666666652" height="261"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnboardingCollectionViewCell" id="HHO-j3-LOS" customClass="OnboardingCollectionViewCell" customModule="EvoGameAppp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="17" width="766.66666666666652" height="261"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nkj-TQ-R3e">
-                                            <rect key="frame" x="0.0" y="0.0" width="766.66666666666652" height="261"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YIs-lo-bUa">
-                                                    <rect key="frame" x="249" y="1.3333333333333286" width="269" height="149"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is Some Random Headline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jc9-Fa-Tlq">
-                                                    <rect key="frame" x="0.0" y="159.33333333333334" width="766.66666666666663" height="47"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxd-Iq-2WD">
-                                                    <rect key="frame" x="0.0" y="199" width="766.66666666666663" height="39"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="jc9-Fa-Tlq" firstAttribute="height" secondItem="nkj-TQ-R3e" secondAttribute="height" multiplier="0.180077" id="3nd-eD-O9u"/>
-                                                <constraint firstItem="YIs-lo-bUa" firstAttribute="centerX" secondItem="nkj-TQ-R3e" secondAttribute="centerX" id="47M-3N-gLg"/>
-                                                <constraint firstItem="YIs-lo-bUa" firstAttribute="centerY" secondItem="nkj-TQ-R3e" secondAttribute="centerY" multiplier="0.58" id="5Sj-Wb-tXe"/>
-                                                <constraint firstAttribute="trailing" secondItem="jc9-Fa-Tlq" secondAttribute="trailing" id="91K-VQ-1On"/>
-                                                <constraint firstItem="YIs-lo-bUa" firstAttribute="width" secondItem="nkj-TQ-R3e" secondAttribute="width" multiplier="0.35087" id="D7r-a0-PPo"/>
-                                                <constraint firstItem="jc9-Fa-Tlq" firstAttribute="centerY" secondItem="nkj-TQ-R3e" secondAttribute="centerY" multiplier="1.4" id="GPF-os-WmB"/>
-                                                <constraint firstItem="Nxd-Iq-2WD" firstAttribute="height" secondItem="nkj-TQ-R3e" secondAttribute="height" multiplier="0.149425" id="Z00-u4-f0r"/>
-                                                <constraint firstItem="Nxd-Iq-2WD" firstAttribute="top" secondItem="jc9-Fa-Tlq" secondAttribute="bottom" constant="-7.3333333333333428" id="aSS-2s-OfL"/>
-                                                <constraint firstItem="jc9-Fa-Tlq" firstAttribute="leading" secondItem="nkj-TQ-R3e" secondAttribute="leading" id="fDz-vm-eyR"/>
-                                                <constraint firstItem="Nxd-Iq-2WD" firstAttribute="leading" secondItem="nkj-TQ-R3e" secondAttribute="leading" id="gmH-vZ-wic"/>
-                                                <constraint firstAttribute="trailing" secondItem="Nxd-Iq-2WD" secondAttribute="trailing" id="mUB-sD-X2J"/>
-                                                <constraint firstAttribute="bottom" secondItem="Nxd-Iq-2WD" secondAttribute="bottom" constant="23" id="pbi-cy-4W7"/>
-                                                <constraint firstItem="YIs-lo-bUa" firstAttribute="height" secondItem="nkj-TQ-R3e" secondAttribute="height" multiplier="0.570881" id="raO-6V-hla"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="766.66666666666652" height="261"/>
-                                        <connections>
-                                            <outlet property="slideDescriptionLabel" destination="Nxd-Iq-2WD" id="xJG-Rm-3FF"/>
-                                            <outlet property="slideImageView" destination="YIs-lo-bUa" id="ScR-Yj-QVV"/>
-                                            <outlet property="slideTitleLabel" destination="jc9-Fa-Tlq" id="q3b-D5-nll"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="E41-IH-eQg"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="h20-Nx-lHq"/>
-                                </connections>
-                            </collectionView>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lz9-Se-O1O">
-                                <rect key="frame" x="325.33333333333331" y="332.33333333333331" width="201.33333333333331" height="39.333333333333314"/>
-                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </pageControl>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="epI-EQ-4FQ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="7bZ-am-aZT"/>
-                            <constraint firstItem="lz9-Se-O1O" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.23615" id="XQb-Dj-WU3"/>
-                            <constraint firstItem="lz9-Se-O1O" firstAttribute="top" secondItem="epI-EQ-4FQ" secondAttribute="bottom" constant="8" id="d0q-KB-rUw"/>
-                            <constraint firstItem="epI-EQ-4FQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ouM-FZ-zaA"/>
-                            <constraint firstItem="epI-EQ-4FQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="scd-bD-cuc"/>
-                            <constraint firstItem="lz9-Se-O1O" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1" id="vEM-O8-bVe"/>
-                            <constraint firstItem="lz9-Se-O1O" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vxU-gT-GKJ"/>
-                            <constraint firstItem="epI-EQ-4FQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.9" id="wpH-ry-4CD"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="collectionView" destination="epI-EQ-4FQ" id="efZ-LB-pYK"/>
-                        <outlet property="pageControl" destination="lz9-Se-O1O" id="sID-Ru-Zas"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1865" y="-2"/>
-        </scene>
-        <!--View Controller-->
+        <!--First Onboardin View Controller-->
         <scene sceneID="GbR-XW-d3m">
             <objects>
-                <viewController id="aw6-Ac-Ngg" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firstOnboardinViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aw6-Ac-Ngg" customClass="firstOnboardinViewController" customModule="EvoGameAppp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hAz-Fx-sa7">
                         <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,7 +28,7 @@
                                     <backgroundConfiguration key="background" image="ContinueButton" imageContentMode="scaleAspectFit"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="42i-j0-PhY" kind="push" id="dBa-5j-U45"/>
+                                    <action selector="nextPressed:" destination="aw6-Ac-Ngg" eventType="touchUpInside" id="YFM-9q-a5c"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -147,12 +49,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HY9-Ks-Pii" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-264.78873239436621" y="-2.2900763358778624"/>
+            <point key="canvasLocation" x="485.91549295774649" y="-2.2900763358778624"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="xat-RL-QLE">
             <objects>
-                <viewController id="EhL-pC-TgR" customClass="HomeViewController" customModule="EvoGameAppp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EhL-pC-TgR" customClass="HomeViewController" customModule="EvoGameAppp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TVT-Bk-CNo">
                         <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k5I-BV-DHI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1901" y="-2"/>
+            <point key="canvasLocation" x="3511.2676056338032" y="-2.2900763358778624"/>
         </scene>
         <!--Detailed View Controller-->
         <scene sceneID="M8f-La-piS">
@@ -180,12 +82,84 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NK2-1T-IKv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2658" y="-2"/>
+            <point key="canvasLocation" x="4159.1549295774648" y="-2.2900763358778624"/>
+        </scene>
+        <!--Evo About View Controller-->
+        <scene sceneID="3O8-fD-mvn">
+            <objects>
+                <viewController storyboardIdentifier="EvoAboutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jsa-B4-YiL" customClass="EvoAboutViewController" customModule="EvoGameAppp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mEI-as-kYN">
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="06B-f6-AlV"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6mB-OA-45C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4915" y="-2"/>
+        </scene>
+        <!--New Search View Controller-->
+        <scene sceneID="i0l-u8-H6A">
+            <objects>
+                <viewController storyboardIdentifier="NewSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dzv-Md-dxX" customClass="NewSearchViewController" customModule="EvoGameAppp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jOz-gb-lFO">
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bjy-Kl-13f"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JaZ-7e-58b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5600.7042253521131" y="-2.2900763358778624"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="Hre-bo-Wa2">
+            <objects>
+                <viewController id="vy0-Nm-ynO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wDI-ZT-rZj">
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="be0-5r-AuU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AVm-Dd-zug" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6316" y="-2"/>
+        </scene>
+        <!--Coming Soon View Controller-->
+        <scene sceneID="wLL-Vj-45K">
+            <objects>
+                <viewController storyboardIdentifier="ComingSoonViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vJd-ni-5yi" customClass="ComingSoonViewController" customModule="EvoGameAppp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AUS-6d-xgd">
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQS-jW-Jgx">
+                                <rect key="frame" x="341" y="181" width="170" height="31.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ztT-ef-3WB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FQS-jW-Jgx" firstAttribute="centerY" secondItem="AUS-6d-xgd" secondAttribute="centerY" id="BYe-ou-RDf"/>
+                            <constraint firstItem="FQS-jW-Jgx" firstAttribute="centerX" secondItem="AUS-6d-xgd" secondAttribute="centerX" id="STI-Gj-jWq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kTi-Lh-Gve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6314.7887323943669" y="823.66412213740455"/>
+        </scene>
+        <!--Sec Onboarding View Controller-->
         <scene sceneID="t6J-8x-JT9">
             <objects>
-                <viewController id="42i-j0-PhY" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="secOnboardingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="42i-j0-PhY" customClass="secOnboardingViewController" customModule="EvoGameAppp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sTk-Q6-FZD">
                         <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,7 +175,7 @@
                                     <backgroundConfiguration key="background" image="ContinueButton" imageContentMode="scaleAspectFit"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="z0c-rz-gFQ" kind="push" id="tya-Jq-Dfc"/>
+                                    <action selector="nextPressed:" destination="42i-j0-PhY" eventType="touchUpInside" id="jp9-f5-MuO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -223,12 +197,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L69-zL-A0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="411.26760563380282" y="-2.2900763358778624"/>
+            <point key="canvasLocation" x="1161.9718309859156" y="-2.2900763358778624"/>
         </scene>
-        <!--View Controller-->
+        <!--Last Onboarding View Controller-->
         <scene sceneID="Hyu-Nd-1Wl">
             <objects>
-                <viewController id="z0c-rz-gFQ" sceneMemberID="viewController">
+                <viewController restorationIdentifier="lastOnboardingViewController" storyboardIdentifier="lastOnboardingViewController" id="z0c-rz-gFQ" customClass="lastOnboardingViewController" customModule="EvoGameAppp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P04-jq-UnW">
                         <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -244,7 +218,7 @@
                                     <backgroundConfiguration key="background" image="ContinueButton" imageContentMode="scaleAspectFit"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="EhL-pC-TgR" kind="push" id="Jsr-7H-vAa"/>
+                                    <action selector="nextPressed:" destination="z0c-rz-gFQ" eventType="touchUpInside" id="q3S-mz-qAz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -266,24 +240,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUz-qy-2lG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1051.4084507042255" y="-2.2900763358778624"/>
+            <point key="canvasLocation" x="1941.549295774648" y="-2.2900763358778624"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="AEX-Rt-ZmJ">
+        <scene sceneID="Rj8-Ts-Cj6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="WBJ-PS-Pck" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E8d-ir-gFL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hpJ-xf-eia">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DTV-WG-eaU">
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="aw6-Ac-Ngg" kind="relationship" relationship="rootViewController" id="mSN-tt-dVO"/>
+                        <segue destination="EhL-pC-TgR" kind="relationship" relationship="rootViewController" id="bOz-BT-Jrw"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jqY-Sz-zJr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nFb-uL-ehR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1015.492957746479" y="-2.2900763358778624"/>
+            <point key="canvasLocation" x="2761.2676056338028" y="-2.2900763358778624"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RJL-nP-Vkr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="flb-uc-jzY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZZT-tJ-mJr">
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aw6-Ac-Ngg" kind="relationship" relationship="rootViewController" id="Xcm-hO-rbb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AcG-t9-vNL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-264.78873239436621" y="-2.2900763358778624"/>
         </scene>
     </scenes>
     <resources>

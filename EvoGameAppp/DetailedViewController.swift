@@ -8,14 +8,16 @@
 import UIKit
 
 class DetailedViewController: UIViewController {
-
+    
     let imageScrollView=UIScrollView()
+    
+    let mainScreenScrollView=UIScrollView()
     
     let getApiImage = GetApiImage()
     
     let backButton:UIButton = {
         let button = UIButton()
-      //  button.backgroundColor = .white
+        //  button.backgroundColor = .white
         button.setImage(UIImage(named: "leftArrowButton"), for: .normal)
         button.contentMode = .scaleAspectFit
         button.layer.cornerRadius = button.frame.width / 2
@@ -24,7 +26,7 @@ class DetailedViewController: UIViewController {
     }()
     
     let backButtonImage:UIImage={
-       let image = UIImage(named:"leftArrowButton")
+        let image = UIImage(named:"leftArrowButton")
         return image!
     }()
     
@@ -44,7 +46,7 @@ class DetailedViewController: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
-//        imageView.image = UIImage(named: "Rectangle")
+        //        imageView.image = UIImage(named: "Rectangle")
         return imageView
     }()
     
@@ -68,7 +70,7 @@ class DetailedViewController: UIViewController {
         imageView.clipsToBounds = true
         return imageView
     }()
-
+    
     private let appIcon:UIImageView={
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
@@ -93,7 +95,7 @@ class DetailedViewController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
-   
+    
     let descriptionText:UITextView={
         let label = UITextView()
         label.textColor = .white
@@ -111,12 +113,12 @@ class DetailedViewController: UIViewController {
     }()
     
     private let downloadsView:UIView={
-       let view = UIView()
+        let view = UIView()
         view.layer.borderColor = UIColor.red.cgColor
         view.layer.borderWidth = 3
         return view
     }()
-
+    
     private let downloadLabel:UILabel={
         let label = UILabel()
         label.text = "Downloads"
@@ -143,9 +145,9 @@ class DetailedViewController: UIViewController {
     
     private let ratingsView:UIView={
         let view = UIView()
-         view.layer.borderColor = UIColor.red.cgColor
-         view.layer.borderWidth = 3
-         return view
+        view.layer.borderColor = UIColor.red.cgColor
+        view.layer.borderWidth = 3
+        return view
     }()
     
     private let ratingLabel:UILabel={
@@ -174,9 +176,9 @@ class DetailedViewController: UIViewController {
     
     private let priceView:UIView={
         let view = UIView()
-         view.layer.borderColor = UIColor.red.cgColor
-         view.layer.borderWidth = 3
-         return view
+        view.layer.borderColor = UIColor.red.cgColor
+        view.layer.borderWidth = 3
+        return view
     }()
     
     private let priceLabel:UILabel={
@@ -229,7 +231,7 @@ class DetailedViewController: UIViewController {
     }()
     
     let batteryPerLabel:UILabel={
-       let label = UILabel()
+        let label = UILabel()
         label.numberOfLines = 1 // Display text in a single line
         label.adjustsFontSizeToFitWidth = true // Enable font size adjustment
         //label.minimumScaleFactor = 0.5
@@ -240,12 +242,12 @@ class DetailedViewController: UIViewController {
     
     let timeLabel:UILabel={
         let label = UILabel()
-         label.numberOfLines = 1 // Display text in a single line
-         label.adjustsFontSizeToFitWidth = true // Enable font size adjustment
-//         label.minimumScaleFactor = 0.5
-         label.textColor = .white
-         label.font = UIFont.boldSystemFont(ofSize: 30)
-         return label
+        label.numberOfLines = 1 // Display text in a single line
+        label.adjustsFontSizeToFitWidth = true // Enable font size adjustment
+        //         label.minimumScaleFactor = 0.5
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        return label
     }()
     
     let topBarValue = TopBarViewFile()
@@ -269,23 +271,30 @@ class DetailedViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-//        backgroundImageView.contentMode = .scaleToFill
-//        backgroundImageView.frame = view.bounds
+        //        backgroundImageView.contentMode = .scaleToFill
+        //        backgroundImageView.frame = view.bounds
         
-        backButton.frame = CGRect(x: 20, y: 20, width: 50, height: 50)
-        imageScrollView.frame = CGRect(x: backButton.frame.minX, y: backButton.frame.maxY, width: view.frame.width*0.3, height: view.frame.height-backButton.frame.maxY)
+        let buttonWidth = view.frame.width * 0.05
+        
+        backButton.frame = CGRect(x: 20, y: 20, width: buttonWidth, height: buttonWidth)
+        imageScrollView.frame = CGRect(x: backButton.frame.minX, y: backButton.frame.maxY+5, width: view.frame.width*0.3, height: view.frame.height-backButton.frame.maxY)
+        
+        mainScreenScrollView.frame = CGRect(x: imageScrollView.frame.maxX, y: backButton.frame.maxY+5, width: view.frame.width*0.6, height: view.frame.height-backButton.frame.maxY)
+        
+        mainScreenScrollView.backgroundColor = .black
+        mainScreenScrollView.showsVerticalScrollIndicator = false
         
         image1.frame = CGRect(x: 0, y: 0, width: imageScrollView.frame.width, height: view.frame.height/3)
         image2.frame = CGRect(x: 0, y: image1.frame.maxY+20, width: imageScrollView.frame.width, height: view.frame.height/3)
         image3.frame = CGRect(x: 0, y: image2.frame.maxY+20, width: imageScrollView.frame.width, height: view.frame.height/3)
         image4.frame = CGRect(x: 0, y: image3.frame.maxY+20, width: imageScrollView.frame.width, height: view.frame.height/3)
         
-        appIcon.frame = CGRect(x: imageScrollView.frame.width+50, y: imageScrollView.frame.minY, width: view.frame.width*0.1, height: view.frame.width*0.1)
+        appIcon.frame = CGRect(x: 5, y: 0, width: view.frame.width*0.1, height: view.frame.width*0.1)
         appIcon.layer.cornerRadius = 10
         
         gameNameLabel.frame = CGRect(x: appIcon.frame.maxX+5, y: appIcon.frame.minY, width: (view.frame.width-imageScrollView.frame.maxX-appIcon.frame.width)/2, height: appIcon.frame.height*0.45)
         
-        downloadButton.frame = CGRect(x: gameNameLabel.frame.maxX+25, y: gameNameLabel.frame.minY, width: view.frame.width/5, height: gameNameLabel.frame.height)
+        downloadButton.frame = CGRect(x: gameNameLabel.frame.maxX+20, y: gameNameLabel.frame.minY+5, width: view.frame.width/6, height: gameNameLabel.frame.height)
         
         
         developerNameLabel.frame = CGRect(x: appIcon.frame.maxX+5, y: gameNameLabel.frame.maxY, width: view.frame.width-appIcon.frame.maxX, height: appIcon.frame.height*0.35)
@@ -303,25 +312,31 @@ class DetailedViewController: UIViewController {
         
         downloadDataLabel.frame = CGRect(x: 0, y: frameYPosition, width: downloadsView.frame.width, height: downloadsView.frame.height*0.4)
         
-        let ratingsViewX = (view.frame.width-downloadsView.frame.maxX)/2-downloadsView.frame.width+downloadsView.frame.maxX
+//        let ratingsViewX = (view.frame.width-downloadsView.frame.maxX)/2-downloadsView.frame.width+downloadsView.frame.maxX
+        
+        let ratingsViewX = (mainScreenScrollView.frame.width-downloadsView.frame.width)/2
         
         ratingsView.frame = CGRect(x: ratingsViewX, y: appIcon.frame.maxY+10, width: (appIconWidth)*0.9, height: appIconHeight*0.9)
         
         ratingDataLabel.frame = CGRect(x: 0, y: frameYPosition, width: downloadsView.frame.width, height: downloadsView.frame.height*0.4)
         
         ratingLabel.frame = CGRect(x: ratingsView.frame.minX, y: ratingsView.frame.maxY+10, width: ratingsView.frame.width, height: 20)
-
-        let priceViewXPoint = (view.frame.width-ratingsView.frame.maxX)-ratingsView.frame.width+ratingsView.frame.maxX
+        
+//        let priceViewXPoint = (mainScreenScrollView.frame.width-ratingsView.frame.maxX)-ratingsView.frame.width+ratingsView.frame.maxX
+        
+        let priceViewXPoint = mainScreenScrollView.frame.width-ratingsView.frame.width
         
         priceView.frame = CGRect(x: priceViewXPoint, y: appIcon.frame.maxY+10, width: (appIconWidth)*0.9, height: appIconHeight*0.9)
-
+        
         priceLabel.frame = CGRect(x: priceView.frame.minX, y: priceView.frame.maxY+10, width: priceView.frame.width, height: 20)
         
         priceDataLabel.frame = CGRect(x: 0, y: frameYPosition, width: downloadsView.frame.width, height: downloadsView.frame.height*0.4)
         
         //downloadsView.backgroundColor = .systemRed
         
-        descriptionText.frame = CGRect(x: appIcon.frame.minX, y: priceLabel.frame.maxY + 10, width: view.frame.width - appIcon.frame.minX - 20, height: view.frame.height - (priceLabel.frame.maxY + 10) - 20)
+        descriptionText.frame = CGRect(x: 5, y: priceLabel.frame.maxY + 10, width: mainScreenScrollView.frame.width-10, height: view.frame.height - (appIconHeight+priceLabel.frame.height + 10) - 20)
+        
+//        textViewDidChange(descriptionText)
         
         topBarView.frame = CGRect(x: view.frame.midX+view.frame.midX/2-30, y: 20, width: view.frame.width/4, height: view.frame.height*0.1)
         
@@ -346,7 +361,8 @@ class DetailedViewController: UIViewController {
         batteryPerLabel.text = topBarValue.getBatteryPercentage()
         timeLabel.text = topBarValue.getTime()
         
-
+        
+        view.addSubview(mainScreenScrollView)
         
         imageScrollView.backgroundColor = .clear
         
@@ -355,30 +371,30 @@ class DetailedViewController: UIViewController {
         
         view.addSubview(backButton)
         view.addSubview(imageScrollView)
-
+        
         
         imageScrollView.addSubview(image1)
         imageScrollView.addSubview(image2)
         imageScrollView.addSubview(image3)
         imageScrollView.addSubview(image4)
         
-        view.addSubview(appIcon)
-        view.addSubview(gameNameLabel)
-        view.addSubview(downloadButton)
-        view.addSubview(developerNameLabel)
-        view.addSubview(downloadsView)
-        view.addSubview(downloadLabel)
-        view.addSubview(ratingsView)
-        view.addSubview(ratingLabel)
-        view.addSubview(priceView)
-        view.addSubview(priceLabel)
+        mainScreenScrollView.addSubview(appIcon)
+        mainScreenScrollView.addSubview(gameNameLabel)
+        mainScreenScrollView.addSubview(downloadButton)
+        mainScreenScrollView.addSubview(developerNameLabel)
+        mainScreenScrollView.addSubview(downloadsView)
+        mainScreenScrollView.addSubview(downloadLabel)
+        mainScreenScrollView.addSubview(ratingsView)
+        mainScreenScrollView.addSubview(ratingLabel)
+        mainScreenScrollView.addSubview(priceView)
+        mainScreenScrollView.addSubview(priceLabel)
         
         downloadsView.addSubview(downloadDataLabel)
         ratingsView.addSubview(ratingDataLabel)
         priceView.addSubview(priceDataLabel)
-    
         
-        view.addSubview(descriptionText)
+        
+        mainScreenScrollView.addSubview(descriptionText)
         
         
         view.addSubview(topBarView)
@@ -388,7 +404,10 @@ class DetailedViewController: UIViewController {
         topBarView.addSubview(batteryPerLabel)
         topBarView.addSubview(timeLabel)
         
+//        view.backgroundColor = .white
+        
         imageScrollView.contentSize = CGSize(width: imageScrollView.frame.width, height: image4.frame.maxY)
+        mainScreenScrollView.contentSize = CGSize(width: view.frame.width*0.6, height: descriptionText.frame.maxY)
     }
     
     @objc func backButtonTapped() {
@@ -407,32 +426,32 @@ class DetailedViewController: UIViewController {
         getApiImage.setBackG(urlString: CoverImage){image in
             DispatchQueue.main.async {
                 self.backgroundImageView.image = image
-                        }
+            }
         }
         getApiImage.setBackG(urlString: Screenshot1){image in
             DispatchQueue.main.async {
                 self.image1.image = image
-                        }
+            }
         }
         getApiImage.setBackG(urlString: Screenshot2){image in
             DispatchQueue.main.async {
                 self.image2.image = image
-                        }
+            }
         }
         getApiImage.setBackG(urlString: Screenshot3){image in
             DispatchQueue.main.async {
                 self.image3.image = image
-                        }
+            }
         }
         getApiImage.setBackG(urlString: Screenshot4){image in
             DispatchQueue.main.async {
                 self.image4.image = image
-                        }
+            }
         }
         getApiImage.setBackG(urlString: Icon){image in
             DispatchQueue.main.async {
                 self.appIcon.image = image
-                        }
+            }
         }
         
         tempIosId = IosId
@@ -441,6 +460,9 @@ class DetailedViewController: UIViewController {
         
         downloadDataLabel.text = downloadsData
         ratingDataLabel.text = ratingsData
+        
+        print(priceData)
+        print("")
         
         if priceData == "0"{
             priceDataLabel.text = "Free"
@@ -451,7 +473,7 @@ class DetailedViewController: UIViewController {
         
         
         descriptionText.text = convertHTMLToPlainText(htmlText: description)
-
+        
     }
     
     func convertHTMLToPlainText(htmlText: String) -> String? {
@@ -465,7 +487,15 @@ class DetailedViewController: UIViewController {
             return nil
         }
     }
+//    func textViewDidChange(_ textView: UITextView) {
+//        let size = CGSize(width: view.frame.width, height: .infinity)
+//        let estimatedSize = textView.sizeThatFits(size)
+//
+//        textView.constraints.forEach { (constraint) in
+//            if constraint.firstAttribute == .height {
+//                constraint.constant = estimatedSize.height
+//            }
+//        }
+//    }
     
 }
-
-

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GameController
 
 class HomeViewController: UIViewController {
     
@@ -54,17 +55,17 @@ class HomeViewController: UIViewController {
     
     let evoButton:UIButton = {
         let button = UIButton()
-        button.backgroundColor = .red
+//        button.backgroundColor = .white
         button.setImage(UIImage(named: "EvoButton"), for: .normal)
         button.contentMode = .scaleAspectFit
-        button.layer.cornerRadius = button.frame.width / 2
+//        button.layer.cornerRadius = button.frame.width / 2
         button.clipsToBounds = true
         return button
     }()
     
     let searchButton:UIButton = {
         let button = UIButton()
-        button.backgroundColor = .white
+//        button.backgroundColor = .white
         button.setImage(UIImage(named: "SearchButton"), for: .normal)
         button.contentMode = .scaleAspectFit
         button.layer.cornerRadius = button.frame.width / 2
@@ -74,7 +75,7 @@ class HomeViewController: UIViewController {
     
     let giftButton:UIButton = {
         let button = UIButton()
-        button.backgroundColor = .white
+//        button.backgroundColor = .white
         button.setImage(UIImage(named: "GiftButton"), for: .normal)
         button.contentMode = .scaleAspectFit
         button.layer.cornerRadius = button.frame.width / 2
@@ -182,7 +183,7 @@ class HomeViewController: UIViewController {
         fetchFeaturedData()
         fetchRecommendedData()
         
-        
+        self.navigationItem.hidesBackButton = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -281,14 +282,23 @@ class HomeViewController: UIViewController {
     }
     
     @objc func searchButtonTapped(){
-        let vc = NewSearchViewController()
-        navigationController?.pushViewController(vc, animated: false)
+//        let vc = NewSearchViewController()
+//        navigationController?.pushViewController(vc, animated: false)
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "NewSearchViewController") as? NewSearchViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     @objc func evoButtonTapped(){
         
         print("EvoButton Tapped")
-        let vc = EvoAboutViewController()
-        navigationController?.pushViewController(vc, animated: false)
+//        let vc = EvoAboutViewController()
+//        navigationController?.pushViewController(vc, animated: false)
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "EvoAboutViewController") as? EvoAboutViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
     

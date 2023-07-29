@@ -36,13 +36,13 @@ class NewSearchViewController: UIViewController, UISearchBarDelegate{
     
     var allSearch:[Search] = []
     
-//    let backgroundImageView:UIImageView={
-//        let image = UIImageView()
-//        image.image = UIImage(named: "BackG")
-//        image.contentMode = .scaleToFill
-////        image.frame = view.bounds
-//        return image
-//    }()
+    let backgroundImageView:UIImageView={
+        let image = UIImageView()
+        image.image = UIImage(named: "BackG")
+        image.contentMode = .scaleToFill
+//        image.frame = view.bounds
+        return image
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,9 @@ class NewSearchViewController: UIViewController, UISearchBarDelegate{
         //view.backgroundColor = .white
         
         
-        //view.addSubview(backgroundImageView)
+        view.addSubview(backgroundImageView)
+        
+        
         
         navigationItem.hidesBackButton = true
         

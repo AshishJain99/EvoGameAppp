@@ -82,14 +82,20 @@ class TopBarViewFile{
     func getTime()->String{
         let today = Date()
         var hours = (Calendar.current.component(.hour, from: today))
-        let minutes = (Calendar.current.component(.minute, from: today))
+        var minutes = (Calendar.current.component(.minute, from: today))
+        var newMin = ""
         var AM = "AM"
     
         if hours>=12{
             hours = hours%12
             AM = "PM"
             }
+        if minutes <= 9{
+            newMin = "0\(minutes)"
+        }else{
+            newMin = String(minutes)
+        }
     
-        return "\(hours):\(minutes)\(AM)"
+        return "\(hours):\(newMin)\(AM)"
     }
 }

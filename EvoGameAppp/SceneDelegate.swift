@@ -14,11 +14,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     @available(iOS 13.0, *)
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        // This will be your window instance from now on.
+        let window = UIWindow(windowScene: windowScene)
+        
+        // Get a reference to the storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // Instantiate the new initial view controller (use your own view controller ID)
+
+        if UserDefaults.standard.bool(forKey: "firstTime"){
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "firstOnboardinViewController") as? firstOnboardinViewController
+            UserDefaults.standard.set(false, forKey: "firstTime")
+            let navigationController = UINavigationController(rootViewController: initialViewController!)
+                    
+            // Set the new initial view controller as the window's root view controller
+            window.rootViewController = navigationController
+        }else{
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
+            UserDefaults.standard.set(false, forKey: "firstTime")
+            let navigationController = UINavigationController(rootViewController: initialViewController!)
+                    
+            // Set the new initial view controller as the window's root view controller
+            window.rootViewController = navigationController
+            
+            
+        }
+        
+        
+        
+        
+        // Set the window and make it visible
+        self.window = window
+        window.makeKeyAndVisible()
     }
+
 
     @available(iOS 13.0, *)
     func sceneDidDisconnect(_ scene: UIScene) {

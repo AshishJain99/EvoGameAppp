@@ -212,6 +212,33 @@ class EvoAboutViewController: UIViewController {
         view.backgroundColor = .white
         navigationController?.setNavigationBarHidden(true, animated: false)
         
+        let faqTapGesture = UITapGestureRecognizer(target: self, action: #selector(faqTapped(_:)))
+            faqView.isUserInteractionEnabled = true
+            faqView.addGestureRecognizer(faqTapGesture)
+        
+        
+        let buyMoreGesture = UITapGestureRecognizer(target: self, action: #selector(buyMoreTapped(_:)))
+            buyMoreView.isUserInteractionEnabled = true
+            buyMoreView.addGestureRecognizer(buyMoreGesture)
+        
+        let referGesture = UITapGestureRecognizer(target: self, action: #selector(referTapped(_:)))
+            referEarnView.isUserInteractionEnabled = true
+            referEarnView.addGestureRecognizer(referGesture)
+        
+        let aboutUsGesture = UITapGestureRecognizer(target: self, action: #selector(aboutUsTapped(_:)))
+            aboutUsView.isUserInteractionEnabled = true
+            aboutUsView.addGestureRecognizer(aboutUsGesture)
+        
+        
+        let connectionGesture = UITapGestureRecognizer(target: self, action: #selector(connectionGuideTapped(_:)))
+            connectionView.isUserInteractionEnabled = true
+            connectionView.addGestureRecognizer(connectionGesture)
+        
+        let userGesture = UITapGestureRecognizer(target: self, action: #selector(userGuideTapped(_:)))
+            userGuideView.isUserInteractionEnabled = true
+            userGuideView.addGestureRecognizer(userGesture)
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -225,7 +252,9 @@ class EvoAboutViewController: UIViewController {
         let containerHeight = viewHeight*0.27
         let containerWidth = viewWidth*0.22
         
-        backButton.frame = CGRect(x: 20, y: 20, width: 50, height: 50)
+        let buttonWidth = view.frame.width * 0.05
+        
+        backButton.frame = CGRect(x: 20, y: 20, width: buttonWidth, height: buttonWidth)
         
         connectionView.frame = CGRect(x: viewWidth*0.1, y: viewHeight*0.25, width: containerWidth, height: containerHeight)
         userGuideView.frame = CGRect(x: connectionView.frame.maxX+viewWidth*0.1, y: viewHeight*0.25, width: containerWidth, height: containerHeight)
@@ -306,4 +335,63 @@ class EvoAboutViewController: UIViewController {
         navigationController?.popViewController(animated: false)
     }
 
+    
+    @objc func faqTapped(_ sender: UITapGestureRecognizer) {
+        // Handle the tap gesture here
+        print("faqTapped")
+        if let url = URL(string: "https://www.amkette.com/pages/evofox-one-gamepad") {
+            UIApplication.shared.open(url)
+        }
+    }
+    @objc func buyMoreTapped(_ sender: UITapGestureRecognizer) {
+        // Handle the tap gesture here
+        print("buyMoreTapped")
+//        if let url = URL(string: "https://www.example.com") {
+//            UIApplication.shared.open(url)
+//        }
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "ComingSoonViewController") as? ComingSoonViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        
+    }
+    @objc func referTapped(_ sender: UITapGestureRecognizer) {
+        // Handle the tap gesture here
+        print("referTapped")
+//        if let url = URL(string: "https://www.example.com") {
+//            UIApplication.shared.open(url)
+//        }
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "ComingSoonViewController") as? ComingSoonViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
+    @objc func aboutUsTapped(_ sender: UITapGestureRecognizer) {
+        // Handle the tap gesture here
+        print("aboutUsTapped")
+        if let url = URL(string: "https://www.amkette.com/pages/about-us") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @objc func userGuideTapped(_ sender: UITapGestureRecognizer) {
+        // Handle the tap gesture here
+        print("userGuideTapped")
+        if let url = URL(string: "https://cdn.shopify.com/s/files/1/0676/1273/7846/files/EvoFox_ONE_U_QSG_B_1.pdf?v=1686809993") {
+            UIApplication.shared.open(url)
+        }
+    }
+    @objc func connectionGuideTapped(_ sender: UITapGestureRecognizer) {
+        // Handle the tap gesture here
+        print("connectionGuideTapped")
+//        if let url = URL(string: "https://www.example.com") {
+//            UIApplication.shared.open(url)
+//        }
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "firstOnboardinViewController") as? firstOnboardinViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
 }
