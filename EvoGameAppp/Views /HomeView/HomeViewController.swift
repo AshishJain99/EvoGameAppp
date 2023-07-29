@@ -232,11 +232,7 @@ class HomeViewController: UIViewController {
         
         timeLabel.frame = CGRect(x: batteryPerLabel.frame.maxX+10, y: controllerConnectedImageView.frame.minY, width: topBarImageViewWidth*2.2, height: topBarImageViewWidth)
         
-        controllerConnectedImageView.image = topBarValue.getConsollerStatus()
-        internetConnectionImageView.image = topBarValue.getNetworkConnectivityType()
-        batteryImageView.image = topBarValue.getBatteryImage()
-        batteryPerLabel.text = topBarValue.getBatteryPercentage()
-        timeLabel.text = topBarValue.getTime()
+        
         
         //topBarValue
         
@@ -277,6 +273,18 @@ class HomeViewController: UIViewController {
             fetchFeaturedData()
             fetchRecommendedData()
         }
+        
+        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        controllerConnectedImageView.image = topBarValue.getConsollerStatus()
+        internetConnectionImageView.image = topBarValue.getNetworkConnectivityType()
+        batteryImageView.image = topBarValue.getBatteryImage()
+        batteryPerLabel.text = topBarValue.getBatteryPercentage()
+        timeLabel.text = topBarValue.getTime()
         
         
     }
