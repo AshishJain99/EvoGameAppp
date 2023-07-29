@@ -464,7 +464,7 @@ class DetailedViewController: UIViewController {
         print(priceData)
         print("")
         
-        if priceData == "0"{
+        if priceData == "0" || priceData == "Free"{
             priceDataLabel.text = "Free"
         }else{
             priceDataLabel.text = "₹\(priceData)"
