@@ -86,7 +86,7 @@ class EvoAboutViewController: UIViewController {
     }()
     
     
-    let faqView:UIView={
+    let gettingStartedView:UIView={
        let view = UIView()
         view.backgroundColor = UIColor(named: "AboutBgColor")
         view.layer.borderWidth = 2
@@ -94,18 +94,18 @@ class EvoAboutViewController: UIViewController {
         return view
     }()
     
-    let faqViewImage:UIImageView={
+    let gettingStartedViewImage:UIImageView={
         let image = UIImageView()
-        image.image = UIImage(named: "About_FAQ")
+        image.image = UIImage(named: "About_gettingStarted")
         //image.backgroundColor = .green
         image.contentMode = .scaleAspectFit
         //image.backgroundColor = .clear
         return image
     }()
     
-    let faqLabel:UILabel={
+    let gettinStartedLabel:UILabel={
        let label = UILabel()
-        label.text = "FAQ"
+        label.text = "Getting Started"
         label.numberOfLines = 1 // Display text in a single line
         label.adjustsFontSizeToFitWidth = true // Enable font size adjustment
         //label.minimumScaleFactor = 0.5
@@ -173,7 +173,7 @@ class EvoAboutViewController: UIViewController {
         return label
     }()
     
-    let buyMoreView:UIView={
+    let contactUsView:UIView={
        let view = UIView()
         view.backgroundColor = UIColor(named: "AboutBgColor")
         view.layer.borderWidth = 2
@@ -181,18 +181,18 @@ class EvoAboutViewController: UIViewController {
         return view
     }()
 
-    let buyMoreImage:UIImageView={
+    let contactUsImage:UIImageView={
         let image = UIImageView()
-        image.image = UIImage(named: "About_BuyMore")
+        image.image = UIImage(named: "About_ContectUs")
         //image.backgroundColor = .green
         image.contentMode = .scaleAspectFit
         //image.backgroundColor = .clear
         return image
     }()
     
-    let buyMoreLabel:UILabel={
+    let contactUsLabel:UILabel={
        let label = UILabel()
-        label.text = "Buy More"
+        label.text = "Contact Us"
         label.numberOfLines = 1 // Display text in a single line
         label.adjustsFontSizeToFitWidth = true // Enable font size adjustment
         //label.minimumScaleFactor = 0.5
@@ -212,14 +212,14 @@ class EvoAboutViewController: UIViewController {
         view.backgroundColor = .white
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        let faqTapGesture = UITapGestureRecognizer(target: self, action: #selector(faqTapped(_:)))
-            faqView.isUserInteractionEnabled = true
-            faqView.addGestureRecognizer(faqTapGesture)
+        let gettingStartedTapGesture = UITapGestureRecognizer(target: self, action: #selector(gettinStartedTapped(_:)))
+            gettingStartedView.isUserInteractionEnabled = true
+            gettingStartedView.addGestureRecognizer(gettingStartedTapGesture)
         
         
-        let buyMoreGesture = UITapGestureRecognizer(target: self, action: #selector(buyMoreTapped(_:)))
-            buyMoreView.isUserInteractionEnabled = true
-            buyMoreView.addGestureRecognizer(buyMoreGesture)
+        let contactUsGesture = UITapGestureRecognizer(target: self, action: #selector(contactUsTapped(_:)))
+            contactUsView.isUserInteractionEnabled = true
+            contactUsView.addGestureRecognizer(contactUsGesture)
         
         let referGesture = UITapGestureRecognizer(target: self, action: #selector(referTapped(_:)))
             referEarnView.isUserInteractionEnabled = true
@@ -256,13 +256,20 @@ class EvoAboutViewController: UIViewController {
         
         backButton.frame = CGRect(x: 20, y: 20, width: buttonWidth, height: buttonWidth)
         
-        connectionView.frame = CGRect(x: viewWidth*0.1, y: viewHeight*0.25, width: containerWidth, height: containerHeight)
+        gettingStartedView.frame = CGRect(x: viewWidth*0.1, y: viewHeight*0.25, width: containerWidth, height: containerHeight)
+        connectionView.frame = CGRect(x: gettingStartedView.frame.maxX+viewWidth*0.1, y: viewHeight*0.25, width: containerWidth, height: containerHeight)
         userGuideView.frame = CGRect(x: connectionView.frame.maxX+viewWidth*0.1, y: viewHeight*0.25, width: containerWidth, height: containerHeight)
-        faqView.frame = CGRect(x: userGuideView.frame.maxX+viewWidth*0.1, y: viewHeight*0.25, width: containerWidth, height: containerHeight)
         
-        aboutUsView.frame = CGRect(x: connectionView.frame.minX, y: connectionView.frame.maxY+viewHeight*0.15, width: containerWidth, height: containerHeight)
-        referEarnView.frame = CGRect(x: userGuideView.frame.minX, y: userGuideView.frame.maxY+viewHeight*0.15, width: containerWidth, height: containerHeight)
-        buyMoreView.frame = CGRect(x: faqView.frame.minX, y: faqView.frame.maxY+viewHeight*0.15, width: containerWidth, height: containerHeight)
+//         = CGRect(x: userGuideView.frame.maxX+viewWidth*0.1, y: viewHeight*0.25, width: containerWidth, height: containerHeight)
+        
+//        CGRect(x: viewWidth*0.1, y: viewHeight*0.25, width: containerWidth, height: containerHeight)
+        
+        
+        aboutUsView.frame = CGRect(x: gettingStartedView.frame.minX, y: gettingStartedView.frame.maxY+viewHeight*0.15, width: containerWidth, height: containerHeight)
+        referEarnView.frame = CGRect(x: connectionView.frame.minX, y: connectionView.frame.maxY+viewHeight*0.15, width: containerWidth, height: containerHeight)
+        contactUsView.frame = CGRect(x: userGuideView.frame.minX, y: userGuideView.frame.maxY+viewHeight*0.15, width: containerWidth, height: containerHeight)
+        
+        //
         
         conncetionViewImage.bounds = CGRect(x: 0, y: 0, width: connectionView.frame.width*0.7, height: connectionView.frame.height*0.5)
         conncetionViewImage.center = CGPoint(x: connectionView.bounds.midX, y: connectionView.bounds.midY*0.9)
@@ -274,10 +281,10 @@ class EvoAboutViewController: UIViewController {
         userGuideLabel.bounds = CGRect(x: 0, y: 0, width: userGuideView.frame.width * 0.7, height: userGuideView.frame.height * 0.2)
         userGuideLabel.center = CGPoint(x: userGuideView.bounds.midX, y: userGuideViewImage.frame.maxY + (userGuideLabel.bounds.height / 2) * 1.15)
         
-        faqViewImage.bounds = CGRect(x: 0, y: 0, width: faqView.frame.width*0.7, height: faqView.frame.height*0.5)
-        faqViewImage.center = CGPoint(x: faqView.bounds.midX, y: faqView.bounds.midY*0.9)
-        faqLabel.bounds = CGRect(x: 0, y: 0, width: faqView.frame.width * 0.7, height: faqView.frame.height * 0.2)
-        faqLabel.center = CGPoint(x: faqView.bounds.midX, y: faqViewImage.frame.maxY + (faqLabel.bounds.height / 2) * 1.15)
+        gettingStartedViewImage.bounds = CGRect(x: 0, y: 0, width: gettingStartedView.frame.width*0.7, height: gettingStartedView.frame.height*0.5)
+        gettingStartedViewImage.center = CGPoint(x: gettingStartedView.bounds.midX, y: gettingStartedView.bounds.midY*0.9)
+        gettinStartedLabel.bounds = CGRect(x: 0, y: 0, width: gettingStartedView.frame.width * 0.7, height: gettingStartedView.frame.height * 0.2)
+        gettinStartedLabel.center = CGPoint(x: gettingStartedView.bounds.midX, y: gettingStartedViewImage.frame.maxY + (gettinStartedLabel.bounds.height / 2) * 1.15)
         
         
         aboutUsImage.bounds = CGRect(x: 0, y: 0, width: aboutUsView.frame.width*0.7, height: aboutUsView.frame.height*0.5)
@@ -290,10 +297,10 @@ class EvoAboutViewController: UIViewController {
         referEarnLabel.bounds = CGRect(x: 0, y: 0, width: referEarnView.frame.width * 0.7, height: referEarnView.frame.height * 0.2)
         referEarnLabel.center = CGPoint(x: referEarnView.bounds.midX, y: referEarnImage.frame.maxY + (referEarnLabel.bounds.height / 2) * 1.15)
         
-        buyMoreImage.bounds = CGRect(x: 0, y: 0, width: referEarnView.frame.width*0.7, height: referEarnView.frame.height*0.5)
-        buyMoreImage.center = CGPoint(x: referEarnView.bounds.midX, y: referEarnView.bounds.midY*0.9)
-        buyMoreLabel.bounds = CGRect(x: 0, y: 0, width: referEarnView.frame.width * 0.7, height: referEarnView.frame.height * 0.2)
-        buyMoreLabel.center = CGPoint(x: referEarnView.bounds.midX, y: referEarnImage.frame.maxY + (referEarnLabel.bounds.height / 2) * 1.15)
+        contactUsImage.bounds = CGRect(x: 0, y: 0, width: referEarnView.frame.width*0.7, height: referEarnView.frame.height*0.5)
+        contactUsImage.center = CGPoint(x: referEarnView.bounds.midX, y: referEarnView.bounds.midY*0.9)
+        contactUsLabel.bounds = CGRect(x: 0, y: 0, width: referEarnView.frame.width * 0.7, height: referEarnView.frame.height * 0.2)
+        contactUsLabel.center = CGPoint(x: referEarnView.bounds.midX, y: referEarnImage.frame.maxY + (referEarnLabel.bounds.height / 2) * 1.15)
         
         print(connectionView.center)
         
@@ -311,9 +318,9 @@ class EvoAboutViewController: UIViewController {
         userGuideView.addSubview(userGuideViewImage)
         userGuideView.addSubview(userGuideLabel)
         
-        view.addSubview(faqView)
-        faqView.addSubview(faqViewImage)
-        faqView.addSubview(faqLabel)
+        view.addSubview(gettingStartedView)
+        gettingStartedView.addSubview(gettingStartedViewImage)
+        gettingStartedView.addSubview(gettinStartedLabel)
         
         view.addSubview(aboutUsView)
         aboutUsView.addSubview(aboutUsImage)
@@ -323,9 +330,9 @@ class EvoAboutViewController: UIViewController {
         referEarnView.addSubview(referEarnImage)
         referEarnView.addSubview(referEarnLabel)
         
-        view.addSubview(buyMoreView)
-        buyMoreView.addSubview(buyMoreImage)
-        buyMoreView.addSubview(buyMoreLabel)
+        view.addSubview(contactUsView)
+        contactUsView.addSubview(contactUsImage)
+        contactUsView.addSubview(contactUsLabel)
         
         view.addSubview(backButton)
     }
@@ -336,19 +343,20 @@ class EvoAboutViewController: UIViewController {
     }
 
     
-    @objc func faqTapped(_ sender: UITapGestureRecognizer) {
+    @objc func gettinStartedTapped(_ sender: UITapGestureRecognizer) {
         // Handle the tap gesture here
-        print("faqTapped")
+        print("gettinStartedTapped")
         if let url = URL(string: "https://www.amkette.com/pages/evofox-one-gamepad") {
             UIApplication.shared.open(url)
         }
     }
-    @objc func buyMoreTapped(_ sender: UITapGestureRecognizer) {
+    @objc func contactUsTapped(_ sender: UITapGestureRecognizer) {
         // Handle the tap gesture here
-        print("buyMoreTapped")
-//        if let url = URL(string: "https://www.example.com") {
-//            UIApplication.shared.open(url)
-//        }
+        print("contactUsTapped")
+        
+        if let url = URL(string: "https://api.whatsapp.com/send?phone=+919312691448&text=Hello") {
+            UIApplication.shared.open(url)
+        }
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "ComingSoonViewController") as? ComingSoonViewController {
             self.navigationController?.pushViewController(vc, animated: true)

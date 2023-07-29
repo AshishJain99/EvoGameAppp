@@ -279,7 +279,7 @@ class DetailedViewController: UIViewController {
         backButton.frame = CGRect(x: 20, y: 20, width: buttonWidth, height: buttonWidth)
         imageScrollView.frame = CGRect(x: backButton.frame.minX, y: backButton.frame.maxY+5, width: view.frame.width*0.3, height: view.frame.height-backButton.frame.maxY)
         
-        mainScreenScrollView.frame = CGRect(x: imageScrollView.frame.maxX, y: backButton.frame.maxY+5, width: view.frame.width*0.6, height: view.frame.height-backButton.frame.maxY)
+        mainScreenScrollView.frame = CGRect(x: imageScrollView.frame.maxX, y: backButton.frame.maxY+5, width: (view.frame.width*0.7)-20, height: view.frame.height-backButton.frame.maxY)
         
         mainScreenScrollView.backgroundColor = .black
         mainScreenScrollView.showsVerticalScrollIndicator = false
