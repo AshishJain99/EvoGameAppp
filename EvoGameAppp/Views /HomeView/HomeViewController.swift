@@ -431,7 +431,7 @@ extension HomeViewController{
     
     
     private func fetchFeaturedData(){
-        guard let url = URL(string: "https://privapi.amkette.com/egpapp_v3/featured.php?device=1")
+        guard let url = URL(string: "https://privapi.amkette.com/egpapp_v3/iosapi/featured.php")
         else {
             return
         }

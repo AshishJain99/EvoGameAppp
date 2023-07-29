@@ -121,7 +121,7 @@ class DetailedViewController: UIViewController {
     
     private let downloadLabel:UILabel={
         let label = UILabel()
-        label.text = "Downloads"
+        label.text = "Age Rating"
         label.textColor = .white
         label.numberOfLines = 1 // Display text in a single line
         label.adjustsFontSizeToFitWidth = true
