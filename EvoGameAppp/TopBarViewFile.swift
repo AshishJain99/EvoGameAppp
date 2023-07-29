@@ -13,9 +13,9 @@ class TopBarViewFile{
     func getConsollerStatus()->UIImage{
         let controllers = GCController.controllers()
          if controllers.isEmpty{
-            return UIImage(systemName: "gamecontroller.fill")!
+             return UIImage(named: "GameConsoleNotConnected")!
         }else{
-            return UIImage(systemName: "x.circle.fill")!
+            return UIImage(systemName: "gamecontroller.fill")!
         }
     }
     
