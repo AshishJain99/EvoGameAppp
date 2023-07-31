@@ -24,20 +24,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Instantiate the new initial view controller (use your own view controller ID)
 
-        if UserDefaults.standard.bool(forKey: "firstTime"){
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "firstOnboardinViewController") as? firstOnboardinViewController
-            UserDefaults.standard.set(false, forKey: "firstTime")
+        if UserDefaults.standard.bool(forKey: "secTime"){
+            
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
+//            UserDefaults.standard.set(false, forKey: "secTime")
             let navigationController = UINavigationController(rootViewController: initialViewController!)
                     
             // Set the new initial view controller as the window's root view controller
             window.rootViewController = navigationController
         }else{
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
-            UserDefaults.standard.set(false, forKey: "firstTime")
+            
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "firstOnboardinViewController") as? firstOnboardinViewController
+            UserDefaults.standard.set(true, forKey: "secTime")
             let navigationController = UINavigationController(rootViewController: initialViewController!)
                     
             // Set the new initial view controller as the window's root view controller
             window.rootViewController = navigationController
+            
+            
+            
+            
             
             
         }

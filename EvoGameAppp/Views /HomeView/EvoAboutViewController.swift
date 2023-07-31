@@ -379,7 +379,7 @@ class EvoAboutViewController: UIViewController {
     @objc func aboutUsTapped(_ sender: UITapGestureRecognizer) {
         // Handle the tap gesture here
         print("aboutUsTapped")
-        if let url = URL(string: "https://www.amkette.com/pages/about-us") {
+        if let url = URL(string: "https://www.amkette.com/evofoxdojo/aboutus") {
             UIApplication.shared.open(url)
         }
     }
@@ -387,7 +387,7 @@ class EvoAboutViewController: UIViewController {
     @objc func userGuideTapped(_ sender: UITapGestureRecognizer) {
         // Handle the tap gesture here
         print("userGuideTapped")
-        if let url = URL(string: "https://cdn.shopify.com/s/files/1/0676/1273/7846/files/EvoFox_ONE_U_QSG_B_1.pdf?v=1686809993") {
+        if let url = URL(string: "https://www.amkette.com/evofoxdojo/userguide") {
             UIApplication.shared.open(url)
         }
     }

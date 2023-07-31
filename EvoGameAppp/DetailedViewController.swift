@@ -294,7 +294,7 @@ class DetailedViewController: UIViewController {
         
         gameNameLabel.frame = CGRect(x: appIcon.frame.maxX+5, y: appIcon.frame.minY, width: (view.frame.width-imageScrollView.frame.maxX-appIcon.frame.width)/2, height: appIcon.frame.height*0.45)
         
-        downloadButton.frame = CGRect(x: gameNameLabel.frame.maxX+20, y: gameNameLabel.frame.minY+5, width: view.frame.width/6, height: gameNameLabel.frame.height)
+        downloadButton.frame = CGRect(x: mainScreenScrollView.frame.width-(view.frame.width/6)-10, y: gameNameLabel.frame.minY+5, width: view.frame.width/6, height: gameNameLabel.frame.height)
         
         
         developerNameLabel.frame = CGRect(x: appIcon.frame.maxX+5, y: gameNameLabel.frame.maxY, width: view.frame.width-appIcon.frame.maxX, height: appIcon.frame.height*0.35)
